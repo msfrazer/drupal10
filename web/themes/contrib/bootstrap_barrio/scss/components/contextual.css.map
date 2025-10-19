@@ -1,0 +1,1 @@
+{"version":3,"sourceRoot":"","sources":["contextual.scss"],"names":[],"mappings":"AAAA;AAAA;AAAA;AAAA;AAKA;EACE;EACA","sourcesContent":["/**\n * @file\n * Contextual links styles for Bootstrap Barrio.\n */\n\n.contextual-links a {\n  border-bottom: none;\n  text-shadow: 0 0 0;\n}\n"]}

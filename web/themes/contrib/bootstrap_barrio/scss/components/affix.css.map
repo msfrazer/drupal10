@@ -1,0 +1,1 @@
+{"version":3,"sourceRoot":"","sources":["affix.scss"],"names":[],"mappings":"AAAA;AAAA;AAAA;AAAA;AAKA;EACE;EACA;EACA;EACA;EACA","sourcesContent":["/**\n * @file\n * Styles for Bootstrap Barrio affix effect.\n */\n\n.affix {\n  position: fixed;\n  width: 100%;\n  top: 0;\n  z-index: 1035;\n  left: 0;\n}\n"]}
