@@ -1,0 +1,58 @@
+############################
+# OS / Editor junk
+############################
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
+
+############################
+# Environment / secrets
+############################
+.env
+.env.*
+*.local
+web/sites/*/settings.local.php
+web/sites/*/settings.php
+
+############################
+# Drupal files directory (user uploads)
+############################
+web/sites/*/files/*
+!web/sites/*/files/.htaccess
+
+############################
+# Private / temp
+############################
+web/sites/*/private/*
+web/sites/*/temp/*
+
+############################
+# Composer
+############################
+/vendor/
+
+############################
+# Node / frontend tooling
+############################
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+############################
+# Sass / build artifacts
+############################
+.sass-cache/
+*.map
+
+############################
+# Theme build output (compiled CSS/JS)
+# Keep your source SCSS + Twig templates tracked.
+############################
+web/themes/custom/**/css/*
+web/themes/custom/**/js/*
+!web/themes/custom/**/css/.gitkeep
+!web/themes/custom/**/js/.gitkeep
