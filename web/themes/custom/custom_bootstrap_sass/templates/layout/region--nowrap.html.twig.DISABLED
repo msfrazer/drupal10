@@ -1,0 +1,9 @@
+{#
+  Region template: nowrap
+  IMPORTANT: must print {{ content }} or the page content will appear "missing".
+#}
+
+{% if content %}
+  <div data-drupal-messages-fallback class="hidden"></div>
+  {{ content }}
+{% endif %}

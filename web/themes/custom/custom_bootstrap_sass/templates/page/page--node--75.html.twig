@@ -1,0 +1,90 @@
+{{ attach_library('custom_bootstrap_sass/fontawesome') }}
+
+{{ page_top }}
+<style>
+  body.page-node-75 {
+    background: red !important;
+  }
+</style>
+
+
+<a href="#main-content" class="visually-hidden focusable skip-link">
+  Skip to main content
+</a>
+
+<section class="home-hero">
+
+  {# LEFT: FULL HEIGHT IMAGE PANEL #}
+  <div class="home-hero__image">
+    <img
+      src="/themes/custom/custom_bootstrap_sass/images/1613.JPEG"
+      alt="Michelle Frazer"
+      loading="eager"
+    />
+  </div>
+
+  {# RIGHT: CONTENT PANEL #}
+  <div class="home-hero__content">
+
+    <h1 class="home-hero__title">
+      Hi, I'm <span>Michelle</span><br />
+      <span class="last-name">Frazer.</span>
+    </h1>
+
+    <h2 class="home-hero__subtitle">
+      A FE Web Developer.
+    </h2>
+
+    <p class="home-hero__description">
+      I'm a Front-End Developer with strong experience in building responsive,
+      user-friendly interfaces using modern technologies like HTML, CSS,
+      JavaScript, and Twig. My focus is on performance, accessibility,
+      and seamless user experiences.
+    </p>
+
+    <a
+      href="/files/Michelle-Frazer-CV.pdf"
+      class="btn-download"
+    >
+      Download CV
+      <span class="btn-icon">
+        <i class="fa-solid fa-download"></i>
+      </span>
+    </a>
+
+  </div>
+
+  {# FAR RIGHT: VERTICAL ICON NAV #}
+  <nav class="home-hero__nav" aria-label="Primary navigation">
+    <ul>
+      <li>
+        <a href="/" class="is-active">
+          <i class="fa-solid fa-house"></i>
+        </a>
+      </li>
+      <li>
+        <a href="/about-me">
+          <i class="fa-solid fa-user"></i>
+        </a>
+      </li>
+      <li>
+        <a href="/portfolio">
+          <i class="fa-solid fa-briefcase"></i>
+        </a>
+      </li>
+      <li>
+        <a href="/blog">
+          <i class="fa-solid fa-pen-nib"></i>
+        </a>
+      </li>
+      <li>
+        <a href="/contact">
+          <i class="fa-solid fa-envelope"></i>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+</section>
+
+{{ page_bottom }}
