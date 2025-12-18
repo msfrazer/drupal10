@@ -1,0 +1,23 @@
+{#
+  Emergency restore template to re-enable content output
+#}
+
+{{ page_top }}
+
+<a href="#main-content" class="visually-hidden focusable skip-link">
+  Skip to main content
+</a>
+
+<header>
+  {{ page.header }}
+</header>
+
+<main id="main-content">
+  {{ page.content }}
+</main>
+
+<footer>
+  {{ page.footer }}
+</footer>
+
+{{ page_bottom }}

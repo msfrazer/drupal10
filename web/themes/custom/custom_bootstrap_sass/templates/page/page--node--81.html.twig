@@ -1,0 +1,90 @@
+{# ===========================
+   ABOUT ME — NODE 78 PAGE
+=========================== #}
+
+{% extends "page.html.twig" %}
+
+
+{% block content %}
+
+<div style="color:white;font-size:50px;padding:50px;">TEMPLATE IS ACTIVE</div>
+
+{{ attach_library('custom_bootstrap_sass/global-styling') }}
+{{ attach_library('custom_bootstrap_sass/fontawesome') }}
+
+<div class="about-me-wrapper">
+
+  {# ---------- ICON NAV (right side) ---------- #}
+  <nav class="subpage-icon-nav">
+    <ul>
+      <li><a href="/" title="Home"><i class="fa-solid fa-house"></i></a></li>
+      <li><a href="/about-me" class="is-active" title="About Me"><i class="fa-solid fa-user"></i></a></li>
+      <li><a href="/portfolio" title="Portfolio"><i class="fa-solid fa-briefcase"></i></a></li>
+      <li><a href="/blog" title="Blog"><i class="fa-solid fa-pen-nib"></i></a></li>
+      <li><a href="/contact" title="Contact"><i class="fa-solid fa-envelope"></i></a></li>
+    </ul>
+  </nav>
+
+  {# ---------- HERO TITLE SECTION ---------- #}
+  <section class="subpage-hero">
+    <div class="subpage-hero-bg-text">MY INFORMATION</div>
+
+    <h1 class="subpage-hero-title">
+      <span class="text-white">ABOUT</span>
+      <span class="text-green">ME</span>
+    </h1>
+  </section>
+
+  <main class="main-content">
+
+    {# ---------- MAIN BODY FROM NODE 78 ---------- #}
+    {% if page.content %}
+      <div class="about-description">
+        {{ page.content }}
+      </div>
+    {% endif %}
+
+    {# ---------- DOWNLOAD BUTTON ---------- #}
+    <a href="/themes/custom/custom_bootstrap_sass/files/Michelle-Frazer-CV.pdf" class="btn-download-cv">
+      <span>Download CV</span>
+      <i class="fa-solid fa-download"></i>
+    </a>
+
+    {# ---------- STATS SECTION ---------- #}
+    <section class="about-stats">
+      <div class="stat-card"><h3>20+</h3><p>Projects Completed</p></div>
+      <div class="stat-card"><h3>40+</h3><p>Portfolio Items</p></div>
+      <div class="stat-card"><h3>10+</h3><p>Code Snippets</p></div>
+      <div class="stat-card"><h3>50+</h3><p>Professional Deliverables</p></div>
+    </section>
+
+    {# ---------- SKILLS ---------- #}
+    <section class="about-skills">
+      <h2 class="section-heading">MY SKILLS</h2>
+
+      <div class="skills-grid">
+        {% for s in [
+          {'name':'HTML5','pct':'95%'},
+          {'name':'CSS3','pct':'90%'},
+          {'name':'JavaScript','pct':'40%'},
+          {'name':'508 Compliance','pct':'90%'},
+          {'name':'PHP','pct':'25%'},
+          {'name':'Drupal Module Dev','pct':'30%'},
+          {'name':'Theming','pct':'90%'},
+          {'name':'Documentation','pct':'100%'}
+        ] %}
+          <div class="skill">
+            <div class="skill-header">
+              <span>{{ s.name }}</span><span>{{ s.pct }}</span>
+            </div>
+            <div class="skill-bar" style="--skill-level:{{ s.pct }}"></div>
+          </div>
+        {% endfor %}
+      </div>
+    </section>
+
+  </main>
+
+</div>
+
+{% endblock %}
