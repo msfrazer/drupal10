@@ -1,6 +1,461 @@
 @charset "UTF-8";
 /* Global variables */
 /* Components */
+/* ======================================
+   ABOUT ME — FULL PAGE (MOCKUP BUILD)
+   File: scss/components/_about-me.scss
+   ====================================== */
+body.path-about-me {
+  background: #0c1220;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+/* PAGE WRAPPER */
+.about-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 7rem 2.5rem 6rem;
+  position: relative;
+}
+
+/* ============================
+   ABOUT PAGE — RIGHT ICON NAV
+   ============================ */
+body.path-about-me .vertical-nav {
+  left: auto !important;
+  right: 2.5rem;
+}
+
+body.path-about-me .vertical-nav ul {
+  align-items: center;
+}
+
+/* Inner centered content width (keeps everything aligned) */
+.about-inner {
+  max-width: 1040px;
+  margin: 0 auto;
+}
+
+/* =========================
+   LEFT ICON NAV (VERTICAL)
+   ========================= */
+.about-icon-nav {
+  position: fixed;
+  top: 135px;
+  left: 44px;
+  z-index: 40;
+}
+
+.about-icon-nav__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 14px;
+}
+
+.about-icon-nav__btn {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  color: #bfc6d5;
+  text-decoration: none;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.25);
+  transition: transform .18s ease, background .18s ease, color .18s ease, box-shadow .18s ease;
+}
+
+.about-icon-nav__btn:hover,
+.about-icon-nav__btn:focus-visible {
+  background: rgba(12, 163, 131, 0.22);
+  color: #0ca383;
+  transform: translateY(-1px);
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.35);
+  outline: none;
+}
+
+/* Hide fixed nav on small screens */
+@media (max-width: 992px) {
+  .about-icon-nav {
+    display: none;
+  }
+}
+
+/* ============================
+   HERO (matches mockup)
+   ============================ */
+.about-hero {
+  position: relative;
+  text-align: center;
+  padding: 6rem 1rem 4rem;
+  margin-bottom: 4.5rem;
+  overflow: hidden;
+}
+
+.about-hero h1 {
+  position: relative;
+  z-index: 2;
+  margin: 0;
+  font-size: clamp(2.8rem, 3.5vw, 4rem);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+
+.about-hero h1 span {
+  color: #0ca383;
+}
+
+.about-hero .bg-text {
+  position: absolute;
+  left: 50%;
+  top: 38%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: clamp(4.6rem, 8vw, 8.2rem);
+  color: #2a2e35;
+  /* solid grey */
+  opacity: 1;
+  /* NO opacity fade */
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+/* ===============================
+   INFO + STATS
+   =============================== */
+.about-container {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 4rem;
+  align-items: start;
+  margin: 0 auto 5.5rem;
+}
+
+.about-left {
+  max-width: 560px;
+}
+
+.about-left h3 {
+  margin: 0 0 1rem;
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+.about-left p {
+  color: #bfc6d5;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.btn-download {
+  margin-top: 2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.95rem 1.9rem;
+  border-radius: 999px;
+  background: #0ca383;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+}
+
+.btn-download:hover,
+.btn-download:focus-visible {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.35);
+  outline: none;
+}
+
+/* STATS GRID (2×2 ALWAYS) */
+.about-right {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(240px, 1fr));
+  gap: 1.8rem;
+  justify-content: center;
+  width: 100%;
+}
+
+.stat-box {
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 18px;
+  padding: 2.6rem 2.2rem;
+  /* bigger cards */
+  min-height: 160px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.stat-box h2 {
+  color: #0ca383;
+  font-size: 2.9rem;
+  margin: 0 0 .35rem;
+  font-weight: 800;
+}
+
+.stat-box p {
+  margin: 0;
+  color: #bfc6d5;
+  font-size: .95rem;
+}
+
+/* ===============================
+   SKILLS
+   =============================== */
+.about-skills-section {
+  margin: 5.5rem 0;
+}
+
+.section-title {
+  margin: 0 0 2.2rem;
+  font-size: 2.1rem;
+  font-weight: 800;
+}
+
+.section-title.center {
+  text-align: center;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem 4rem;
+}
+
+.skill-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: .95rem;
+  margin-bottom: .55rem;
+}
+
+.skill-bar {
+  height: 6px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.skill-bar span {
+  display: block;
+  height: 100%;
+  background: #0ca383;
+}
+
+/* ===============================
+   TIMELINE (stable 2-col, aligned icons)
+   =============================== */
+.about-timeline-section {
+  max-width: 1040px;
+  margin: 6rem auto 0;
+}
+
+.timeline {
+  /* SAME width logic as about-inner, keeps centered and prevents “shift left/right” */
+  max-width: 1040px;
+  margin: 3.2rem auto 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 7rem;
+  row-gap: 3.6rem;
+  align-items: start;
+}
+
+/* Each item is “icon + content” */
+.timeline-item {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  /* fixed icon lane */
+  column-gap: 1.5rem;
+  align-items: start;
+}
+
+/* Force BOTH columns to use the SAME icon x-position inside their column */
+.timeline-item.left,
+.timeline-item.right {
+  justify-self: stretch;
+}
+
+/* ICON (perfect vertical alignment per column) */
+.timeline-item .tl-icon {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: #0ca383;
+  color: #fff;
+  display: grid;
+  place-items: center;
+  position: relative;
+  margin-top: 2px;
+  /* micro-align with text */
+}
+
+.timeline-item.left {
+  padding-left: 3.5rem;
+  /* pushes entire left column right */
+}
+
+.timeline-item.left .tl-icon {
+  justify-self: start;
+}
+
+/* Per-icon connector line (6 total, one per icon) */
+.timeline-item .tl-icon::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 58px;
+  background: rgba(255, 255, 255, 0.22);
+}
+
+/* Kill connector line only on last row (last 2 items overall = last row) */
+.timeline-item:nth-last-child(-n+2) .tl-icon::after {
+  display: none;
+}
+
+.timeline-item .tl-content {
+  max-width: none;
+}
+
+/* =========================================
+   TIMELINE — DATE PILLS (MOCKUP)
+   ========================================= */
+.timeline-item .tl-duration {
+  display: inline-block;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #bfc6d5;
+  margin-bottom: 0.9rem;
+}
+
+.timeline-item h4 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.35;
+}
+
+.timeline-item h4 span {
+  color: #9aa4bf;
+  font-weight: 500;
+}
+
+/* ============================
+   TIMELINE — CENTER ALIGNMENT NUDGE
+   ============================ */
+.timeline-item.left {
+  padding-right: 1.5rem;
+}
+
+.timeline-item.right {
+  padding-left: 1.8rem;
+}
+
+/* ===============================
+   RESPONSIVE
+   =============================== */
+@media (max-width: 1100px) {
+  .about-page {
+    padding: 6rem 1.6rem 5rem;
+  }
+  .about-inner {
+    max-width: 960px;
+  }
+  .timeline {
+    column-gap: 5rem;
+  }
+  .about-right {
+    grid-template-columns: repeat(2, minmax(200px, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .about-container {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .about-right {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+  .timeline {
+    grid-template-columns: 1fr;
+    row-gap: 2.6rem;
+  }
+  .timeline-item:nth-last-child(-n+2) .tl-icon::after {
+    display: block;
+    /* in 1-col mode we can’t treat last 2 as “last row” */
+  }
+  .timeline-item:last-child .tl-icon::after {
+    display: none;
+  }
+}
+
+@media (max-width: 520px) {
+  .about-right {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================
+   ABOUT PAGE — FIX VERTICAL NAV POSITION
+   ============================ */
+body.path-about-me .subpage-icon-nav {
+  left: auto !important;
+  right: 2rem !important;
+}
+
+/* =========================================
+   ABOUT PAGE — FORCE VERTICAL NAV RIGHT
+   ========================================= */
+body.path-about-me nav,
+body.path-about-me .vertical-nav,
+body.path-about-me .icon-nav,
+body.path-about-me .subpage-icon-nav {
+  left: auto !important;
+  right: 2rem !important;
+}
+
+/* =========================================
+   ABOUT PAGE — FIX ICON NAV POSITION
+   ========================================= */
+body.path-about-me .about-icon-nav {
+  position: fixed;
+  right: 2rem;
+  left: auto;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 50;
+}
+
+body.path-about-me .about-icon-nav__list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
 /* =========================================================
    FRONT PAGE HERO — FULL BLEED OVERRIDE (BARRIO SAFE)
    ========================================================= */
@@ -186,189 +641,64 @@ body.path-frontpage .home-hero__nav a.is-active {
   }
 }
 
-/* =========================================================
-   FRONT PAGE HERO — FULL BLEED OVERRIDE (BARRIO SAFE)
-   ========================================================= */
-/* ---------------------------------------------------------
-   1. RESET BARRIO / BOOTSTRAP WRAPPERS (FRONT PAGE ONLY)
-   --------------------------------------------------------- */
-body.path-frontpage main,
-body.path-frontpage .region-content,
-body.path-frontpage .block-system-main-block {
-  max-width: none !important;
-  padding: 0 !important;
+/* ======================================
+   SUBPAGE HORIZONTAL NAV — PILL STYLE
+   ====================================== */
+body:not(.path-frontpage) {
+  /* Header container */
+  /* Menu wrapper */
+  /* Pill links */
+  /* Hover glow */
+  /* Active page */
 }
 
-body.path-frontpage .container,
-body.path-frontpage .row,
-body.path-frontpage [class*="col-"] {
-  max-width: none !important;
-  width: 100% !important;
-  padding-left: 0 !important;
-  padding-right: 0 !important;
+body:not(.path-frontpage) header,
+body:not(.path-frontpage) .global-header {
+  background: transparent;
 }
 
-/* ---------------------------------------------------------
-   2. HERO WRAPPER (REAL LAYOUT CONTAINER)
-   --------------------------------------------------------- */
-body.path-frontpage section.home-hero {
-  position: relative;
-  display: flex !important;
-  flex-direction: row !important;
-  width: 100%;
-  height: 100vh;
-  background: #0c1220;
-  overflow: hidden;
-}
-
-/* ---------------------------------------------------------
-   3. LEFT IMAGE PANEL
-   --------------------------------------------------------- */
-body.path-frontpage .home-hero__image {
-  flex: 0 0 45%;
-  height: 100vh;
-}
-
-body.path-frontpage .home-hero__image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: grayscale(100%) contrast(1.1);
-}
-
-/* ---------------------------------------------------------
-   4. RIGHT CONTENT PANEL
-   --------------------------------------------------------- */
-body.path-frontpage .home-hero__content {
-  flex: 1 1 auto;
-  height: 100vh;
-  padding: 4rem 5rem;
+body:not(.path-frontpage) nav ul,
+body:not(.path-frontpage) .header-menu ul {
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  background: linear-gradient(135deg, #0c1220 0%, #191d2b 100%);
-  color: #ffffff;
-  position: relative;
-  z-index: 2;
+  gap: 1.2rem;
+  list-style: none;
+  padding: 0;
+  margin: 2.5rem auto 0;
 }
 
-/* ---------------------------------------------------------
-   5. TYPOGRAPHY
-   --------------------------------------------------------- */
-body.path-frontpage .home-hero__title {
-  font-size: clamp(3rem, 5vw, 4.5rem);
-  font-weight: 800;
-  line-height: 1.1;
-  margin-bottom: 1.2rem;
+body:not(.path-frontpage) nav li {
+  margin: 0;
 }
 
-body.path-frontpage .home-hero__title span,
-body.path-frontpage .home-hero__title .last-name {
-  color: #0ca383;
-}
-
-body.path-frontpage .home-hero__subtitle {
-  font-size: 1.6rem;
-  font-weight: 600;
-  margin-bottom: 1.5rem;
-}
-
-body.path-frontpage .home-hero__description {
-  max-width: 520px;
-  font-size: 1.05rem;
-  line-height: 1.7;
-  margin-bottom: 2.5rem;
-  color: #d5d9e3;
-}
-
-/* ---------------------------------------------------------
-   6. DOWNLOAD BUTTON
-   --------------------------------------------------------- */
-body.path-frontpage .btn-download {
+body:not(.path-frontpage) nav a {
   display: inline-flex;
   align-items: center;
-  gap: 1rem;
-  padding: 0.9rem 1.6rem;
+  justify-content: center;
+  padding: 0.65rem 1.5rem;
   border-radius: 999px;
-  background: #0ca383;
-  color: #ffffff;
+  font-size: 0.85rem;
   font-weight: 600;
-  text-decoration: none;
-  width: fit-content;
-  transition: background 0.3s ease;
-}
-
-body.path-frontpage .btn-download:hover {
-  background: #0fbf95;
-}
-
-body.path-frontpage .btn-download .btn-icon {
-  width: 36px;
-  height: 36px;
-  background: #ffffff;
-  color: #0ca383;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* ---------------------------------------------------------
-   7. VERTICAL ICON NAV (DETACHED FROM FLOW)
-   --------------------------------------------------------- */
-body.path-frontpage .home-hero__nav {
-  position: absolute;
-  right: 2rem;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 10;
-}
-
-body.path-frontpage .home-hero__nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-body.path-frontpage .home-hero__nav a {
-  width: 46px;
-  height: 46px;
-  border-radius: 50%;
-  background: #2a2e3f;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   color: #bfc6d5;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.25s ease;
+  background: rgba(255, 255, 255, 0.06);
+  text-decoration: none;
+  transition: background 0.25s ease, color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
 }
 
-body.path-frontpage .home-hero__nav a:hover,
-body.path-frontpage .home-hero__nav a.is-active {
-  background: #0ca383;
-  color: #ffffff;
+body:not(.path-frontpage) nav a:hover {
+  color: #0ca383;
+  background: rgba(12, 163, 131, 0.15);
+  box-shadow: 0 0 0 1px rgba(12, 163, 131, 0.4), 0 0 20px rgba(12, 163, 131, 0.55);
+  transform: translateY(-1px);
 }
 
-/* ---------------------------------------------------------
-   8. RESPONSIVE
-   --------------------------------------------------------- */
-@media (max-width: 992px) {
-  body.path-frontpage section.home-hero {
-    flex-direction: column;
-  }
-  body.path-frontpage .home-hero__image {
-    flex: none;
-    height: 40vh;
-  }
-  body.path-frontpage .home-hero__content {
-    height: auto;
-    padding: 3rem 2rem;
-  }
-  body.path-frontpage .home-hero__nav {
-    display: none;
-  }
+body:not(.path-frontpage) nav a.is-active,
+body:not(.path-frontpage) nav li.is-active > a {
+  color: #0ca383;
+  background: rgba(12, 163, 131, 0.2);
+  box-shadow: 0 0 0 1px rgba(12, 163, 131, 0.6), 0 0 24px rgba(12, 163, 131, 0.7);
 }
 
 /* =========================================================

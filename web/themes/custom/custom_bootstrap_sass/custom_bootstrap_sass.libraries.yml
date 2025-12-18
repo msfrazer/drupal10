@@ -30,8 +30,6 @@ about-me:
   css:
     theme:
       css/components/about-me.css: {}
-  dependencies:
-    - core/drupal
 
 
 fontawesome:

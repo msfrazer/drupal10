@@ -1,14 +1,46 @@
 {#
-  About Me — Node 78
+  ABOUT ME — NODE 78
+  TWIG-ONLY, NO DRUPAL UI
 #}
 
-{{ attach_library('custom_bootstrap_sass/about-me') }}
+{{ attach_library('custom_bootstrap_sass/global-styling') }}
 {{ attach_library('custom_bootstrap_sass/fontawesome') }}
 
-{{ page_top }}
+<section class="about-page">
 
-<main class="about-page" id="main-content">
-  {{ content }}
-</main>
+  {# =========================
+     ICON NAV (SUBPAGES)
+     ========================= #}
+  <nav class="subpage-icon-nav" aria-label="Primary navigation">
+    <ul class="subpage-icon-nav__list">
+      <li><a href="/" class="subpage-icon-nav__item"><i class="fa-solid fa-house"></i></a></li>
+      <li><a href="/about-me" class="subpage-icon-nav__item is-active"><i class="fa-solid fa-user"></i></a></li>
+      <li><a href="/portfolio" class="subpage-icon-nav__item"><i class="fa-solid fa-briefcase"></i></a></li>
+      <li><a href="/blog" class="subpage-icon-nav__item"><i class="fa-solid fa-pen-nib"></i></a></li>
+      <li><a href="/contact" class="subpage-icon-nav__item"><i class="fa-solid fa-envelope"></i></a></li>
+    </ul>
+  </nav>
 
-{{ page_bottom }}
+  {# =========================
+     HERO
+     ========================= #}
+  <header class="about-hero">
+    <h1>ABOUT <span>ME</span></h1>
+    <span class="bg-text">MY INFORMATION</span>
+  </header>
+
+  {# =========================
+     CONTENT
+     ========================= #}
+  <div class="about-inner">
+
+    <!-- INFO / STATS -->
+    <!-- SKILLS -->
+    <!-- TIMELINE -->
+    <!-- DOWNLOAD CV -->
+
+    {# ALL YOUR HTML LIVES HERE #}
+
+  </div>
+
+</section>
