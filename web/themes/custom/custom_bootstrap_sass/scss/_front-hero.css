@@ -1,0 +1,65 @@
+.hero {
+  min-height: 100vh;
+  background: #191d2b;
+  display: flex;
+  align-items: center;
+  padding: 4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero__content {
+  max-width: 520px;
+  z-index: 2;
+}
+
+.hero__content h1 {
+  font-size: 3.2rem;
+  line-height: 1.2;
+  color: #ffffff;
+}
+
+.hero__content h1 .accent {
+  color: #0ca383;
+}
+
+.hero__content h2 {
+  font-size: 1.8rem;
+  margin-top: 0.75rem;
+  color: #ffffff;
+}
+
+.hero__tagline {
+  margin-top: 1.25rem;
+  color: #bfc6d5;
+}
+
+.btn-download {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 2rem;
+  padding: 0.85rem 2.2rem;
+  border-radius: 999px;
+  border: 2px solid #0ca383;
+  color: #ffffff;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-download:hover {
+  background: #0ca383;
+  color: #000;
+}
+
+.hero__image {
+  position: absolute;
+  right: 10%;
+  bottom: 0;
+  max-height: 90vh;
+}
+
+.hero__image img {
+  max-height: 90vh;
+  width: auto;
+  display: block;
+}

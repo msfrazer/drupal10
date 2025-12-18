@@ -29,4 +29,10 @@ function custom_bootstrap_sass_form_system_theme_settings_alter(&$form, FormStat
     'bg-white' => t('White'),
     'bg-transparent' => t('Transparent'),
   );
+  function custom_bootstrap_sass_preprocess_node(&$variables) {
+  if (!empty($variables['node']) && $variables['node']->id() == 78) {
+    $variables['#attached']['library'][] = 'custom_bootstrap_sass/about-me';
+  }
+}
+
 }

@@ -1,13 +1,42 @@
 global-styling:
   version: VERSION
-  js: 
+  css:
+    theme:
+      css/bootstrap.min.css: {}
+      css/style.css: {}
+  js:
     js/popper.min.js: { weight: -49 }
     js/bootstrap.min.js: { weight: -48 }
     js/barrio.js: {}
     js/custom.js: {}
-  css:
-    component:
-      css/style.css: {}
   dependencies:
     - core/jquery
     - core/drupal
+    - custom_bootstrap_sass/fontawesome
+
+front-hero:
+  css:
+    theme:
+      css/components/front-hero.css: {}
+
+homepage:
+  css:
+    theme:
+      scss/components/homepage.css: {}
+  dependencies:
+    - core/drupal
+
+about-me:
+  css:
+    theme:
+      css/components/about-me.css: {}
+  dependencies:
+    - core/drupal
+
+
+fontawesome:
+  css:
+    theme:
+      https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css:
+        type: external
+

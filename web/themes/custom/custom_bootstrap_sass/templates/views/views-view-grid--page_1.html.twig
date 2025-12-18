@@ -1,0 +1,15 @@
+{#
+  Custom Blog Grid (page_1) — for Content/Teaser display
+#}
+
+<p style="color:lime; text-align:center;">✅ Blog grid override (page_1) is active!</p>
+
+<div class="blog-grid">
+  {% for row in rows %}
+    <div class="blog-card">
+      {{ row.content }}
+    </div>
+  {% else %}
+    <p style="color:orange;">⚠️ No content found in this view.</p>
+  {% endfor %}
+</div>
