@@ -1,18 +1,16 @@
-{{ attach_library('custom_bootstrap_sass/homepage') }}
 {{ attach_library('custom_bootstrap_sass/fontawesome') }}
 
 {{ page_top }}
+
+
 
 <a href="#main-content" class="visually-hidden focusable skip-link">
   Skip to main content
 </a>
 
-{# =========================================================
-   FULL-BLEED FRONT PAGE HERO (OUTSIDE PAGE.CONTENT)
-   ========================================================= #}
-
 <section class="home-hero">
 
+  {# LEFT: FULL HEIGHT IMAGE PANEL #}
   <div class="home-hero__image">
     <img
       src="/themes/custom/custom_bootstrap_sass/images/1613.JPEG"
@@ -21,10 +19,11 @@
     />
   </div>
 
+  {# RIGHT: CONTENT PANEL #}
   <div class="home-hero__content">
 
     <h1 class="home-hero__title">
-      Hi, I'm <span>Michelle</span><br>
+      Hi, I'm <span>Michelle</span><br />
       <span class="last-name">Frazer.</span>
     </h1>
 
@@ -39,7 +38,10 @@
       and seamless user experiences.
     </p>
 
-    <a href="/files/Michelle-Frazer-CV.pdf" class="btn-download">
+    <a
+      href="/files/Michelle-Frazer-CV.pdf"
+      class="btn-download"
+    >
       Download CV
       <span class="btn-icon">
         <i class="fa-solid fa-download"></i>
@@ -48,24 +50,37 @@
 
   </div>
 
+  {# FAR RIGHT: VERTICAL ICON NAV #}
   <nav class="home-hero__nav" aria-label="Primary navigation">
     <ul>
-      <li><a href="/" class="is-active"><i class="fa-solid fa-house"></i></a></li>
-      <li><a href="/about-me"><i class="fa-solid fa-user"></i></a></li>
-      <li><a href="/portfolio"><i class="fa-solid fa-briefcase"></i></a></li>
-      <li><a href="/blog"><i class="fa-solid fa-pen-nib"></i></a></li>
-      <li><a href="/contact"><i class="fa-solid fa-envelope"></i></a></li>
+      <li>
+        <a href="/" class="is-active">
+          <i class="fa-solid fa-house"></i>
+        </a>
+      </li>
+      <li>
+        <a href="/about-me">
+          <i class="fa-solid fa-user"></i>
+        </a>
+      </li>
+      <li>
+        <a href="/portfolio">
+          <i class="fa-solid fa-briefcase"></i>
+        </a>
+      </li>
+      <li>
+        <a href="/blog">
+          <i class="fa-solid fa-pen-nib"></i>
+        </a>
+      </li>
+      <li>
+        <a href="/contact">
+          <i class="fa-solid fa-envelope"></i>
+        </a>
+      </li>
     </ul>
   </nav>
 
 </section>
-
-{# =========================================================
-   NORMAL PAGE CONTENT (NOW BELOW HERO)
-   ========================================================= #}
-
-<main id="main-content" role="main">
-  {{ page.content }}
-</main>
 
 {{ page_bottom }}
