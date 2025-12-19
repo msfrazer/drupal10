@@ -1,200 +1,178 @@
-/* =========================================================
-   FRONT PAGE HERO — FULL BLEED OVERRIDE (BARRIO SAFE)
-   ========================================================= */
+body.page-node-75 {
 
-/* ---------------------------------------------------------
-   1. RESET BARRIO / BOOTSTRAP WRAPPERS (FRONT PAGE ONLY)
-   --------------------------------------------------------- */
-
-body.path-frontpage main,
-body.path-frontpage .region-content,
-body.path-frontpage .block-system-main-block {
-  max-width: none !important;
-  padding: 0 !important;
+  body.page-node-75 .home-hero__content {
+  max-width: 900px;
 }
 
-body.path-frontpage .container,
-body.path-frontpage .row,
-body.path-frontpage [class*="col-"] {
-  max-width: none !important;
-  width: 100% !important;
-  padding-left: 0 !important;
-  padding-right: 0 !important;
+
+  .home-hero {
+    display: grid;
+    grid-template-columns: 6rem 38% 1fr; 
+    position: relative;
+    min-height: 100vh;
+    background: #0f1624;
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+  .home-hero__inner {
+    width: 100vw;
+    max-width: none !important;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    display: grid;
+    grid-template-columns: 42% 58%;
+    min-height: 100vh;
+  }
+
 }
 
-/* ---------------------------------------------------------
-   2. HERO WRAPPER (REAL LAYOUT CONTAINER)
-   --------------------------------------------------------- */
+  .home-hero__accent {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 72px;
+    height: 100%;
+    background: #0ca383;
+    z-index: 1;
+  }
 
-body.path-frontpage section.home-hero {
-  position: relative;
-  display: flex !important;
-  flex-direction: row !important;
-  width: 100%;
-  height: 100vh;
-  background: #0c1220;
-  overflow: hidden;
-}
-
-/* ---------------------------------------------------------
-   3. LEFT IMAGE PANEL
-   --------------------------------------------------------- */
-
-body.path-frontpage .home-hero__image {
-  flex: 0 0 45%;
-  height: 100vh;
-}
-
-body.path-frontpage .home-hero__image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: grayscale(100%) contrast(1.1);
-}
-
-/* ---------------------------------------------------------
-   4. RIGHT CONTENT PANEL
-   --------------------------------------------------------- */
-
-body.path-frontpage .home-hero__content {
-  flex: 1 1 auto;
-  height: 100vh;
-  padding: 4rem 5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background: linear-gradient(
-    135deg,
-    #0c1220 0%,
-    #191d2b 100%
-  );
-  color: #ffffff;
-  position: relative;
-  z-index: 2;
-}
-
-/* ---------------------------------------------------------
-   5. TYPOGRAPHY
-   --------------------------------------------------------- */
-
-body.path-frontpage .home-hero__title {
-  font-size: clamp(3rem, 5vw, 4.5rem);
-  font-weight: 800;
-  line-height: 1.1;
-  margin-bottom: 1.2rem;
-}
-
-body.path-frontpage .home-hero__title span,
-body.path-frontpage .home-hero__title .last-name {
-  color: #0ca383;
-}
-
-body.path-frontpage .home-hero__subtitle {
-  font-size: 1.6rem;
-  font-weight: 600;
-  margin-bottom: 1.5rem;
-}
-
-body.path-frontpage .home-hero__description {
-  max-width: 520px;
-  font-size: 1.05rem;
-  line-height: 1.7;
-  margin-bottom: 2.5rem;
-  color: #d5d9e3;
-}
-
-/* ---------------------------------------------------------
-   6. DOWNLOAD BUTTON
-   --------------------------------------------------------- */
-
-body.path-frontpage .btn-download {
-  display: inline-flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 0.9rem 1.6rem;
-  border-radius: 999px;
+  .home-hero::before {
+  content: "";
+  grid-column: 1;
+  grid-row: 1 / -1;
   background: #0ca383;
-  color: #ffffff;
-  font-weight: 600;
-  text-decoration: none;
-  width: fit-content;
-  transition: background 0.3s ease;
 }
 
-body.path-frontpage .btn-download:hover {
-  background: #0fbf95;
-}
 
-body.path-frontpage .btn-download .btn-icon {
-  width: 36px;
-  height: 36px;
-  background: #ffffff;
-  color: #0ca383;
-  border-radius: 50%;
+body.page-node-75 {
+
+  .home-hero__image {
+  grid-column: 2;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 4rem 2rem;
+
+  img {
+    max-height: 85vh;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+  }
 }
 
-/* ---------------------------------------------------------
-   7. VERTICAL ICON NAV (DETACHED FROM FLOW)
-   --------------------------------------------------------- */
 
-body.path-frontpage .home-hero__nav {
-  position: absolute;
-  right: 2rem;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 10;
-}
+  .home-hero__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
 
-body.path-frontpage .home-hero__nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-body.path-frontpage .home-hero__nav a {
-  width: 46px;
-  height: 46px;
-  border-radius: 50%;
-  background: #2a2e3f;
-  color: #bfc6d5;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.25s ease;
-}
-
-body.path-frontpage .home-hero__nav a:hover,
-body.path-frontpage .home-hero__nav a.is-active {
-  background: #0ca383;
-  color: #ffffff;
-}
-
-/* ---------------------------------------------------------
-   8. RESPONSIVE
-   --------------------------------------------------------- */
-
-@media (max-width: 992px) {
-  body.path-frontpage section.home-hero {
+  .home-hero__content {
+    display: flex;
+    grid-column: 3;
     flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
+    padding: 6rem 6rem 6rem 4rem;
+    width: 70%;
+    margin: 0;
+    max-width: none;
+    padding-left: clamp(10rem, 14vw, 18rem);
+    padding-right: 6rem;
+
+    /* REMOVE any max-width here */
+    max-width: none;
+  }
+}
+
+.home-hero__content h2 {
+  text-align: left;
+  margin-top: 1.5rem;
+}
+
+.home-hero__content p {
+  max-width: 48rem;   // readable but not boxed
+  line-height: 1.7;
+}
+
+
+body.page-node-75 {
+
+  .hero-title {
+    max-width: 640px;
+    line-height: 1.1;
+    margin-bottom: 1.25rem;
   }
 
-  body.path-frontpage .home-hero__image {
-    flex: none;
-    height: 40vh;
+  .hero-subtitle {
+    margin-top: 1rem;
+    margin-bottom: 1.75rem;
   }
 
-  body.path-frontpage .home-hero__content {
-    height: auto;
-    padding: 3rem 2rem;
+}
+
+.hero-title,
+  .hero-subtitle {
+    max-width: none !important;
+  }
+ .hero-description {
+    max-width: 78ch;
+    margin-bottom: 2.25rem;
+    line-height: 1.65;
   }
 
-  body.path-frontpage .home-hero__nav {
+.hero-icon-nav {
+    position: absolute;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .hero-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+
+body.page-node-75 {
+  .node__meta,
+  .submitted {
     display: none;
   }
+}
+body.page-node-75 {
+
+  /* Kill Drupal content width constraints INSIDE hero */
+  .home-hero .node__content,
+  .home-hero .layout-content,
+  .home-hero .region-content,
+  .home-hero .container,
+  .home-hero .container-fluid {
+    max-width: none !important;
+    width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin: 0 !important;
+  }
+
+}
+body.page-node-75 {
+
+  /* Force hero text to ignore global typography limits */
+  .home-hero p,
+  .home-hero__content p {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+
+}
+body.page-node-75 .home-hero__content {
+  max-width: 900px;
 }
