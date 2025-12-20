@@ -2,10 +2,6 @@
    FRONT HERO — NODE 75 (CLEAN)
 ================================ */
 
-/* =========================================================
-   FRONT HERO — NODE 75 (STABLE & FINAL)
-   ========================================================= */
-
 body.page-node-75 {
   background: #191d2b;
   margin: 0;
@@ -98,13 +94,13 @@ body.page-node-75 .home-hero__image img {
 
   object-fit: cover !important;
 }
+
+
+
 /* =========================================================
    HERO VERTICAL ICON NAV (POSITIONING ONLY)
    ========================================================= */
 
-/* =========================================================
-   HERO VERTICAL ICON NAV — FINAL POSITIONING
-   ========================================================= */
 
 body.page-node-75 .home-hero__nav {
   position: absolute;
@@ -112,5 +108,234 @@ body.page-node-75 .home-hero__nav {
   top: 50%;
   transform: translateY(-50%);
   z-index: 5;
+  
 }
 
+/* =========================================================
+   HERO VERTICAL NAV — SIZE ADJUSTMENT
+   ========================================================= */
+/* =========================================
+   LOCK HERO NAV LAYOUT (PREVENT CONTENT SHIFT)
+   ========================================= */
+
+body.page-node-75 .home-hero__nav {
+  width: 72px;          /* lock width */
+  pointer-events: auto;
+}
+
+/* Inner anchor handles glow, not the nav itself */
+body.page-node-75 .home-hero__nav a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+body.page-node-75 .home-hero__nav a i {
+  font-size: 1.35rem;
+}
+
+
+/* =================================
+   HERO DOWNLOAD BUTTON 
+   =============================*/
+
+body.page-node-75 .btn-download {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 1.1rem 2.6rem;
+  font-size: 1.1rem;        /* ⬅️ bigger text */
+  font-weight: 600;
+
+  color: #ffffff;
+  background: #0ca383;
+  border-radius: 999px;
+  text-decoration: none;
+  overflow: hidden;
+
+  transition: color 0.3s ease;
+}
+
+/* Hover fill animation layer */
+body.page-node-75 .btn-download::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #0fbf95;      /* lighter green */
+  transform: translateY(-100%);
+  transition: transform 0.35s ease;
+  z-index: 0;
+}
+
+/* Text stays above animation */
+body.page-node-75 .btn-download span,
+body.page-node-75 .btn-download {
+  position: relative;
+  z-index: 1;
+}
+
+/* Hover effect */
+body.page-node-75 .btn-download:hover::before {
+  transform: translateY(0);
+}
+
+body.page-node-75 .btn-download:hover {
+  color: #ffffff;
+}
+
+/* Hover / focus */
+body.page-node-75 .btn-download:hover::before,
+body.page-node-75 .btn-download:focus-visible::before {
+  transform: scaleY(1);
+}
+
+/* Subtle lift */
+body.page-node-75 .btn-download:hover,
+body.page-node-75 .btn-download:focus-visible {
+  transform: translateY(-1px);
+}
+
+/* Active click */
+body.page-node-75 .btn-download:active {
+  transform: translateY(0);
+}
+/* =========================================
+   HERO DOWNLOAD BUTTON — FIXED
+   ========================================= */
+
+body.page-node-75 .btn-download {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 1.1rem 2.6rem;
+  font-size: 1.15rem;
+  font-weight: 600;
+
+  color: #ffffff;
+  background: #0ca383;
+  border-radius: 999px;
+  text-decoration: none;
+  overflow: hidden;
+
+  isolation: isolate; /* 🔑 THIS is the critical fix */
+}
+
+/* Hover fill layer */
+body.page-node-75 .btn-download::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #0fbf95;
+  transform: translateY(-100%);
+  transition: transform 0.35s ease;
+  z-index: -1; /* stays behind text */
+}
+
+/* Hover animation */
+body.page-node-75 .btn-download:hover::before {
+  transform: translateY(0);
+}
+/* =========================================================
+   HERO NAV — FORCE SIZE (FINAL OVERRIDE)
+   ========================================================= */
+
+body.page-node-75 .home-hero__nav a {
+  width: 64px !important;
+  height: 64px !important;
+}
+
+body.page-node-75 .home-hero__nav a i {
+  font-size: 1.6rem !important;
+}
+/* =========================================================
+   HERO NAV — TOOLTIPS (MATCH ABOUT PAGE)
+   ========================================================= */
+
+body.page-node-75 .home-hero__nav a {
+  position: relative;
+}
+
+body.page-node-75 .home-hero__nav a::after {
+  content: attr(aria-label);
+
+  position: absolute;
+  right: calc(100% + 14px);
+  top: 50%;
+  transform: translateY(-50%) translateX(6px);
+
+  background: #1f2433;
+  color: #0ca383;
+
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  white-space: nowrap;
+
+  opacity: 0;
+  pointer-events: none;
+
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+
+  box-shadow:
+    0 0 0 1px rgba(12, 163, 131, 0.25),
+    0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+body.page-node-75 .home-hero__nav a:hover::after,
+body.page-node-75 .home-hero__nav a:focus-visible::after {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+
+
+/* Hide tooltips on touch devices */
+@media (hover: none) {
+  body.page-node-75 .home-hero__nav a::after {
+    display: none;
+  }
+}
+
+/* =========================================
+   HERO ICON NAV — SUBTLE GLOW (CLIP-SAFE)
+   ========================================= */
+
+body.page-node-75 .home-hero__nav a {
+  transition:
+    background-color 0.25s ease,
+    filter 0.25s ease,
+    transform 0.2s ease;
+}
+
+/* Hover + keyboard focus */
+body.page-node-75 .home-hero__nav a:hover,
+body.page-node-75 .home-hero__nav a:focus-visible {
+  background-color: rgba(12, 163, 131, 0.18);
+
+  filter:
+    drop-shadow(0 0 6px rgba(12, 163, 131, 0.45))
+    drop-shadow(0 0 14px rgba(12, 163, 131, 0.35));
+
+  transform: scale(1.06);
+}
+
+/* Active page */
+body.page-node-75 .home-hero__nav a.is-active {
+  background-color: rgba(12, 163, 131, 0.22);
+
+  filter:
+    drop-shadow(0 0 8px rgba(12, 163, 131, 0.55))
+    drop-shadow(0 0 18px rgba(12, 163, 131, 0.45));
+}
