@@ -56,3 +56,15 @@ web/themes/custom/**/css/*
 web/themes/custom/**/js/*
 !web/themes/custom/**/css/.gitkeep
 !web/themes/custom/**/js/.gitkeep
+# Local-only tooling
+node_modules/
+package.json
+package-lock.json
+vendor/
+web/modules/contrib/
+web/libraries/
+
+# Local temp / backups
+*.bak
+tmp_test
+.DS_Store
