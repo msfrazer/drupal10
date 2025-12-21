@@ -1,200 +1,250 @@
-/* =========================================================
-   FRONT PAGE HERO — FULL BLEED OVERRIDE (BARRIO SAFE)
-   ========================================================= */
+/* ==========================================================
+   FRONT PAGE HERO — NODE 75 (AUTHORITATIVE)
+   This file owns ALL homepage hero styling.
+   Do NOT duplicate these styles in other files.
+   ========================================================== */
 
-/* ---------------------------------------------------------
-   1. RESET BARRIO / BOOTSTRAP WRAPPERS (FRONT PAGE ONLY)
-   --------------------------------------------------------- */
 
-body.path-frontpage main,
-body.path-frontpage .region-content,
-body.path-frontpage .block-system-main-block {
-  max-width: none !important;
-  padding: 0 !important;
-}
-
-body.path-frontpage .container,
-body.path-frontpage .row,
-body.path-frontpage [class*="col-"] {
-  max-width: none !important;
-  width: 100% !important;
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-}
-
-/* ---------------------------------------------------------
-   2. HERO WRAPPER (REAL LAYOUT CONTAINER)
-   --------------------------------------------------------- */
-
-body.path-frontpage section.home-hero {
-  position: relative;
-  display: flex !important;
-  flex-direction: row !important;
-  width: 100%;
-  height: 100vh;
-  background: #0c1220;
+body.page-node-75 {
+  margin: 0;
+  background: #0f1624;
   overflow: hidden;
 }
 
-/* ---------------------------------------------------------
-   3. LEFT IMAGE PANEL
-   --------------------------------------------------------- */
-
-body.path-frontpage .home-hero__image {
-  flex: 0 0 45%;
-  height: 100vh;
+body.page-node-75 .home-hero {
+  display: grid;
+  grid-template-columns: 45% 1fr;
+  min-height: 100vh;
+  max-height: 100vh;
+  position: relative;
+  background: #0f1624;
+  overflow: hidden;
 }
 
-body.path-frontpage .home-hero__image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: grayscale(100%) contrast(1.1);
+/* GREEN STRIPE — NOT FULL HEIGHT */
+body.page-node-75 .home-hero::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 370px;
+  background: #0ca383;
+  z-index: 1;
 }
 
-/* ---------------------------------------------------------
-   4. RIGHT CONTENT PANEL
-   --------------------------------------------------------- */
 
-body.path-frontpage .home-hero__content {
-  flex: 1 1 auto;
+/* IMAGE — ON TOP OF GREEN */
+body.page-node-75 .home-hero__image {
   height: 100vh;
-  padding: 4rem 5rem;
   display: flex;
-  flex-direction: column;
+  align-items: stretch;   // ⬅ allow full height
   justify-content: center;
-  background: linear-gradient(
-    135deg,
-    #0c1220 0%,
-    #191d2b 100%
-  );
-  color: #ffffff;
+  padding-top: 6vh;
+  padding-bottom: 6vh;
+  position: relative;   /* REQUIRED for z-index */
+  z-index: 3;
+  max-width: 420px;      /* ⬅ controls image width */
+  margin-left: 2.5rem;  /* ⬅ pulls it away from green */
+         /* higher than ::before */
+  overflow: hidden;
+}
+
+body.page-node-75 .home-hero__image img {
+  height: auto;               // 🔑 stop vertical stretch
+  max-height: 88vh;           // tall but controlled
+  width: auto;
+  max-width: none;
+
+  object-fit: contain;        // no cropping
+  object-position: center top;
+
+  filter: grayscale(100%) contrast(1.05);
+  transition: filter 0.4s ease;
+}
+
+
+
+body.page-node-75 .home-hero__image:hover img {
+  filter: grayscale(0%);
+}
+
+
+/* CONTENT */
+body.page-node-75 .home-hero__content {
   position: relative;
   z-index: 2;
-}
-
-/* ---------------------------------------------------------
-   5. TYPOGRAPHY
-   --------------------------------------------------------- */
-
-body.path-frontpage .home-hero__title {
-  font-size: clamp(3rem, 5vw, 4.5rem);
-  font-weight: 800;
-  line-height: 1.1;
-  margin-bottom: 1.2rem;
-}
-
-body.path-frontpage .home-hero__title span,
-body.path-frontpage .home-hero__title .last-name {
-  color: #0ca383;
-}
-
-body.path-frontpage .home-hero__subtitle {
-  font-size: 1.6rem;
-  font-weight: 600;
-  margin-bottom: 1.5rem;
-}
-
-body.path-frontpage .home-hero__description {
-  max-width: 520px;
-  font-size: 1.05rem;
-  line-height: 1.7;
-  margin-bottom: 2.5rem;
-  color: #d5d9e3;
-}
-
-/* ---------------------------------------------------------
-   6. DOWNLOAD BUTTON
-   --------------------------------------------------------- */
-
-body.path-frontpage .btn-download {
-  display: inline-flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 0.9rem 1.6rem;
-  border-radius: 999px;
-  background: #0ca383;
-  color: #ffffff;
-  font-weight: 600;
-  text-decoration: none;
-  width: fit-content;
-  transition: background 0.3s ease;
-}
-
-body.path-frontpage .btn-download:hover {
-  background: #0fbf95;
-}
-
-body.path-frontpage .btn-download .btn-icon {
-  width: 36px;
-  height: 36px;
-  background: #ffffff;
-  color: #0ca383;
-  border-radius: 50%;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
+  padding: 6rem 5rem 6rem 4rem;
+  max-width: 760px;
+  margin-left: 0;
+  transform: translateX(-2.5rem);
+  line-height: 1.7;
+
 }
 
-/* ---------------------------------------------------------
-   7. VERTICAL ICON NAV (DETACHED FROM FLOW)
-   --------------------------------------------------------- */
+body.page-node-75 .home-hero__title {
+  line-height: 1.1;
+  font-weight: 900;
+}
 
-body.path-frontpage .home-hero__nav {
+/* HERO SUBTITLE — ISOLATED */
+body.page-node-75 .home-hero__subtitle {
+  font-weight: 900;
+  letter-spacing: 0.04em; // optional but looks 🔥 with bold
+}
+
+
+
+body.page-node-75 .hero-name {
+  color: #0ca383;
+  white-space: nowrap;
+  display: inline-block;
+  font-weight: 900;
+}
+
+
+/* RIGHT ICON NAV */
+body.page-node-75 .home-hero__nav {
   position: absolute;
-  right: 2rem;
+  right: 2.5rem;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 10;
+  z-index: 3;
 }
 
-body.path-frontpage .home-hero__nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+body.page-node-75 .home-hero__nav ul {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
 
-body.path-frontpage .home-hero__nav a {
-  width: 46px;
-  height: 46px;
-  border-radius: 50%;
-  background: #2a2e3f;
-  color: #bfc6d5;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* REMOVE DOTS NEXT TO HERO NAV ICONS */
+body.page-node-75 .home-hero__nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+body.page-node-75 .home-hero__nav li::before,
+body.page-node-75 .home-hero__nav a::before {
+  content: none !important;
+  display: none !important;
+}
+
+
+body.page-node-75 .home-hero__nav a {
+  width: 48px;
+  height: 48px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  background: rgba(12, 163, 131, 0.15);
+  color: #0ca383;
   transition: all 0.25s ease;
 }
 
-body.path-frontpage .home-hero__nav a:hover,
-body.path-frontpage .home-hero__nav a.is-active {
+body.page-node-75 .home-hero__nav a:hover,
+body.page-node-75 .home-hero__nav a.is-active {
   background: #0ca383;
+  color: #0f1624;
+  box-shadow: 0 0 18px rgba(12, 163, 131, 0.65);
+}
+
+/* =====================================
+   HERO ICON NAV — TOOLTIPS (PILL + GLOW)
+===================================== */
+
+body.page-node-75 .home-hero__nav a {
+  position: relative;
+}
+
+/* Tooltip bubble */
+body.page-node-75 .home-hero__nav a::after {
+  content: attr(aria-label);
+  position: absolute;
+  right: 120%;
+  top: 50%;
+  transform: translateY(-50%) translateX(6px);
+
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+
+  background: #0ca383;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+
+  opacity: 0;
+  pointer-events: none;
+
+  box-shadow: 0 0 18px rgba(12, 163, 131, 0.65);
+
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+
+/* Show on hover + keyboard focus */
+body.page-node-75 .home-hero__nav a:hover::after,
+body.page-node-75 .home-hero__nav a:focus-visible::after {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+
+
+/* ================================
+   HERO DOWNLOAD BUTTON (FINAL)
+================================ */
+
+body.page-node-75 .btn-download {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.55rem 1.25rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  width: auto !important;
+  min-width: unset !important;
+  max-width: fit-content;
+
   color: #ffffff;
+  background: transparent;
+  border: 1.5px solid #0ca383;
+  border-radius: 999px;
+
+  overflow: hidden;
+  z-index: 1;
 }
 
-/* ---------------------------------------------------------
-   8. RESPONSIVE
-   --------------------------------------------------------- */
 
-@media (max-width: 992px) {
-  body.path-frontpage section.home-hero {
-    flex-direction: column;
-  }
+/* GREEN FILL ANIMATION */
+body.page-node-75 .btn-download::before {
+  content: "";
+  position: absolute;
+  inset: 0;
 
-  body.path-frontpage .home-hero__image {
-    flex: none;
-    height: 40vh;
-  }
+  background: #0ca383;
+  transform: scaleY(0);
+  transform-origin: top;        // ⬅ top → bottom
+  transition: transform 0.35s ease;
 
-  body.path-frontpage .home-hero__content {
-    height: auto;
-    padding: 3rem 2rem;
-  }
-
-  body.path-frontpage .home-hero__nav {
-    display: none;
-  }
+  z-index: -1;
 }
+
+/* HOVER STATE */
+body.page-node-75 .btn-download:hover {
+  color: #ffffff;               // stays white
+  box-shadow: 0 0 18px rgba(12, 163, 131, 0.65);
+}
+
+body.page-node-75 .btn-download:hover::before {
+  transform: scaleY(1);
+}
+

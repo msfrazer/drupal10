@@ -1,0 +1,85 @@
+/* ===============================
+   HOME HERO — FINAL CLEAN BUILD
+   =============================== */
+
+body.page-front,
+body.page-node-75 {
+  overflow: hidden;
+}
+
+.home-hero {
+  display: grid;
+  grid-template-columns: 42% 1fr;
+  height: calc(100vh - 0px);
+  background: #0f1424;
+}
+
+/* LEFT IMAGE PANEL */
+.home-hero__image {
+  position: relative;
+  height: 85vh;
+  margin: auto 0 auto 4rem;
+  overflow: hidden;
+}
+
+.home-hero__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%);
+  transition: filter 0.6s ease;
+}
+
+.home-hero__image:hover img {
+  filter: grayscale(0%);
+}
+
+/* GREEN SPLICE — SOLID, NO BLUR */
+.home-hero__image::before {
+  content: "";
+  position: absolute;
+  inset: -2rem -2rem -2rem 0;
+  background: linear-gradient(
+    to right,
+    #0ca383 0%,
+    rgba(12,163,131,0.0) 70%
+  );
+  z-index: -1;
+}
+
+/* RIGHT CONTENT */
+.home-hero__content {
+  padding: 6rem 6rem 6rem 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.home-hero__title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.home-hero__title span {
+  color: #0ca383;
+}
+
+.home-hero__subtitle {
+  margin: 1.5rem 0;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.home-hero__description {
+  max-width: 520px;
+  line-height: 1.6;
+  opacity: 0.85;
+  margin-bottom: 2.5rem;
+}
+
+/* REMOVE DRUPAL METADATA */
+.node__meta,
+.submitted {
+  display: none !important;
+}

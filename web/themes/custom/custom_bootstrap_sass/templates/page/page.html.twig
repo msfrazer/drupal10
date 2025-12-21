@@ -1,6 +1,51 @@
+{#
+  =========================================
+  GLOBAL PAGE TEMPLATE — SUBPAGES ONLY
+  Excludes homepage
+  =========================================
+#}
+
+{{ attach_library('custom_bootstrap_sass/global-styling') }}
+{{ attach_library('custom_bootstrap_sass/fontawesome') }}
+
 {{ page_top }}
 
-<main id="main-content">
+{# =========================
+   SUBPAGE ICON NAV
+   ========================= #}
+{% if not is_front %}
+<nav class="subpage-icon-nav" aria-label="Primary navigation">
+  <ul class="subpage-icon-nav__list">
+    <li>
+      <a href="/" aria-label="Home" class="subpage-icon-nav__item">
+        <i class="fa-solid fa-house"></i>
+      </a>
+    </li>
+    <li>
+      <a href="/about-me" aria-label="About" class="subpage-icon-nav__item">
+        <i class="fa-solid fa-user"></i>
+      </a>
+    </li>
+    <li>
+      <a href="/portfolio" aria-label="Portfolio" class="subpage-icon-nav__item">
+        <i class="fa-solid fa-briefcase"></i>
+      </a>
+    </li>
+    <li>
+      <a href="/blog" aria-label="Blog" class="subpage-icon-nav__item">
+        <i class="fa-solid fa-pen-nib"></i>
+      </a>
+    </li>
+    <li>
+      <a href="/contact" aria-label="Contact" class="subpage-icon-nav__item">
+        <i class="fa-solid fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</nav>
+{% endif %}
+
+<main id="main-content" role="main">
   {{ page.content }}
 </main>
 
