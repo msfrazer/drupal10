@@ -1,0 +1,22 @@
+<article class="blog-card">
+
+  <div class="blog-card__image">
+    {{ fields.field_featured_image.content }}
+    <span class="blog-card__accent"></span>
+  </div>
+
+  <div class="blog-card__content">
+    <h3 class="blog-card__title">
+      {{ fields.title.content }}
+    </h3>
+
+    <div class="blog-card__summary">
+      {{ fields.field_summary.content }}
+    </div>
+
+    <div class="blog-card__meta">
+      {{ fields.created.content }}
+    </div>
+  </div>
+
+</article>

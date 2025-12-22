@@ -1,0 +1,18 @@
+{{ attach_library('custom_bootstrap_sass/global-styling') }}
+{{ attach_library('custom_bootstrap_sass/blog') }}
+
+{{ page_top }}
+
+<section class="subpage-hero subpage-hero--blog">
+  <div class="subpage-hero__inner">
+    <h1 class="subpage-hero__title">
+      MY <span>BLOGS</span>
+    </h1>
+  </div>
+</section>
+
+<main id="main-content">
+  {{ page.content }}
+</main>
+
+{{ page_bottom }}

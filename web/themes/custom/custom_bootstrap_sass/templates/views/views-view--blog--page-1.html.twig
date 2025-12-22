@@ -1,0 +1,18 @@
+{{ attach_library('custom_bootstrap_sass/blog') }}
+{{ attach_library('custom_bootstrap_sass/global-styling') }}
+
+<section class="blog-page">
+  <div class="blog-page__inner">
+
+
+
+    {% if rows %}
+      <div class="blog-grid">
+        {{ rows }}
+      </div>
+    {% else %}
+      <p style="color:red;">No rows found.</p>
+    {% endif %}
+
+  </div>
+</section>

@@ -1,0 +1,44 @@
+/* ============================
+   SUBPAGE HEADER (GLOBAL SAFE)
+   ============================ */
+
+.subpage-header {
+  position: relative;
+  padding: 6rem 2rem 5rem;
+  background: radial-gradient(
+    circle at top,
+    #1f2437 0%,
+    #0c1220 70%
+  );
+  overflow: hidden;
+}
+
+.subpage-header__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.subpage-header__title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: #ffffff;
+  text-align: center;
+}
+
+.subpage-header__ghost {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(5rem, 15vw, 10rem);
+  font-weight: 900;
+  letter-spacing: 0.2em;
+  color: #ffffff;
+  opacity: 0.05;
+  pointer-events: none;
+  text-transform: uppercase;
+}

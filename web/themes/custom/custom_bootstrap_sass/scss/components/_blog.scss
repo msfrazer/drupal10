@@ -1,0 +1,158 @@
+/* =====================================================
+   BLOG PAGE – HERO
+===================================================== */
+
+.subpage-hero--blog {
+  padding: 8rem 0 5rem;
+  text-align: center;
+
+  .subpage-hero__title {
+    position: relative;
+    font-size: clamp(3rem, 6vw, 5rem);
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    z-index: 1;
+
+    span {
+      color: #0ca383;
+    }
+
+    &::after {
+      content: "BLOGS";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: clamp(6rem, 12vw, 9rem);
+      opacity: 0.06;
+      z-index: -1;
+      white-space: nowrap;
+    }
+  }
+}
+
+/* =====================================================
+   BLOG PAGE WRAPPER
+===================================================== */
+
+.blog-page {
+  width: 100%;
+}
+
+.blog-page__inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 3rem;
+  width: 100%;
+}
+
+/* =====================================================
+   BLOG GRID (THIS WAS MISSING)
+===================================================== */
+
+.blog-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2.5rem;
+  width: 100%;
+}
+
+/* Each Views row must remain a grid item */
+.blog-grid > .views-row {
+  width: 100%;
+}
+
+/* =====================================================
+   BLOG CARD
+===================================================== */
+
+.blog-card {
+  display: flex;
+  flex-direction: column;
+  background: #1e2333;
+  border-radius: 18px;
+  overflow: hidden;
+  height: 100%;
+  transition: transform 0.35s ease;
+}
+
+.blog-card:hover {
+  transform: translateY(-6px);
+}
+
+/* =====================================================
+   IMAGE (MATCHES MOCKUP)
+===================================================== */
+
+.blog-card__image {
+  position: relative;
+  height: 360px;
+  overflow: hidden;
+}
+
+.blog-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: grayscale(100%);
+  transition: filter 0.4s ease;
+}
+
+/* GREEN BAR */
+.blog-card__accent {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 4px;
+  width: 0;
+  background: #0ca383;
+  transition: width 0.4s ease;
+}
+
+.blog-card:hover .blog-card__accent {
+  width: 100%;
+}
+
+.blog-card:hover img {
+  filter: grayscale(0%);
+}
+
+/* =====================================================
+   CONTENT
+===================================================== */
+
+.blog-card__content {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.blog-card__title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.blog-card__meta {
+  margin-top: auto;
+  font-size: 0.85rem;
+  opacity: 0.6;
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 992px) {
+  .blog-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .blog-grid {
+    grid-template-columns: 1fr;
+  }
+}

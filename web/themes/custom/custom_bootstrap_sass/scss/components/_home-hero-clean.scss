@@ -1,0 +1,61 @@
+/* =====================================
+   HOME HERO — CLEAN RESET (NODE 75)
+   ===================================== */
+
+body.page-node-75 {
+  background: #0f1624;
+}
+
+body.page-node-75 .home-hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: 72px 40% 1fr;
+  min-height: 100vh;
+  background: #0f1624;
+  overflow: hidden;
+}
+
+/* Left accent strip */
+body.page-node-75 .home-hero::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 72px;
+  height: 70vh;
+  background: #0ca383;
+  z-index: 0;
+}
+
+/* Image */
+body.page-node-75 .home-hero__image {
+  grid-column: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+body.page-node-75 .home-hero__image img {
+  max-height: 85vh;
+  width: auto;
+  object-fit: contain;
+  filter: grayscale(100%);
+}
+
+/* Content */
+body.page-node-75 .home-hero__content {
+  grid-column: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 6rem 6rem 6rem 4rem;
+  color: #fff;
+  z-index: 1;
+}
+
+body.page-node-75 .home-hero__content p {
+  max-width: 70ch;
+}
