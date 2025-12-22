@@ -3,15 +3,27 @@
 
 {{ page_top }}
 
+{# RIGHT SIDE ICON NAV #}
+<nav class="side-icon-nav side-icon-nav--blog" aria-label="Blog navigation">
+  <ul>
+    <li><a href="/"        aria-label="Home"      title="Home"      data-tooltip="Home"><i class="fa-solid fa-house"></i></a></li>
+    <li><a href="/about-me" aria-label="About"     title="About Me"  data-tooltip="About Me"><i class="fa-solid fa-user"></i></a></li>
+    <li><a href="/portfolio" aria-label="Portfolio" title="Portfolio" data-tooltip="Portfolio"><i class="fa-solid fa-briefcase"></i></a></li>
+    <li class="is-active"><a href="/blog" aria-label="Blog" title="Blog" data-tooltip="Blog"><i class="fa-solid fa-pen-nib"></i></a></li>
+    <li><a href="/contact" aria-label="Contact" title="Contact" data-tooltip="Contact"><i class="fa-solid fa-envelope"></i></a></li>
+  </ul>
+</nav>
+
+
+
+{# HERO #}
 <section class="subpage-hero subpage-hero--blog">
-  <div class="subpage-hero__inner">
-    <h1 class="subpage-hero__title">
-      MY <span>BLOGS</span>
-    </h1>
-  </div>
+  <h1 class="subpage-hero__title">
+    MY <span>BLOGS</span>
+  </h1>
 </section>
 
-<main id="main-content">
+<main id="main-content" class="blog-page">
   {{ page.content }}
 </main>
 
