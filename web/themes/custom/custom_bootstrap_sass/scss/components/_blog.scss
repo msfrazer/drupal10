@@ -1,158 +1,600 @@
 /* =====================================================
-   BLOG PAGE – HERO
+   BLOG PAGE — HERO
 ===================================================== */
 
 .subpage-hero--blog {
   padding: 8rem 0 5rem;
   text-align: center;
+}
 
-  .subpage-hero__title {
-    position: relative;
-    font-size: clamp(3rem, 6vw, 5rem);
-    font-weight: 800;
-    letter-spacing: 0.08em;
-    z-index: 1;
+.subpage-hero--blog .subpage-hero__title {
+  position: relative;
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  z-index: 1;
+}
 
-    span {
-      color: #0ca383;
-    }
+.subpage-hero--blog .subpage-hero__title span {
+  color: #0ca383;
+}
 
-    &::after {
-      content: "BLOGS";
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: clamp(6rem, 12vw, 9rem);
-      opacity: 0.06;
-      z-index: -1;
-      white-space: nowrap;
-    }
-  }
+.subpage-hero--blog .subpage-hero__title::after {
+  content: "BLOGS";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: clamp(6rem, 12vw, 9rem);
+  opacity: 0.06;
+  z-index: -1;
+  white-space: nowrap;
 }
 
 /* =====================================================
-   BLOG PAGE WRAPPER
+   RIGHT ICON NAV — FORCE RIGHT
 ===================================================== */
 
-.blog-page {
-  width: 100%;
-}
-
-.blog-page__inner {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 3rem;
-  width: 100%;
+.side-icon-nav,
+.side-icon-nav--blog {
+  position: fixed;
+  top: 50%;
+  right: 2rem;
+  left: auto !important;
+  transform: translateY(-50%);
+  z-index: 200;
 }
 
 /* =====================================================
-   BLOG GRID (THIS WAS MISSING)
+   BLOG GRID — VIEWS OVERRIDE (BOOTSTRAP SAFE)
 ===================================================== */
 
-.blog-grid {
+body.path-blog .view-id-blog .view-content.row {
   display: grid !important;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 2.5rem;
-  width: 100%;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.25rem;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 2rem 6rem;
+
+  --bs-gutter-x: 0;
+  --bs-gutter-y: 0;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
 }
 
-/* Each Views row must remain a grid item */
-.blog-grid > .views-row {
-  width: 100%;
+body.path-blog .view-id-blog .view-content.row > .views-row {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 /* =====================================================
    BLOG CARD
 ===================================================== */
 
-.blog-card {
-  display: flex;
-  flex-direction: column;
+body.path-blog .view-id-blog .views-row {
   background: #1e2333;
   border-radius: 18px;
   overflow: hidden;
-  height: 100%;
-  transition: transform 0.35s ease;
+  position: relative;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
-.blog-card:hover {
+body.path-blog .view-id-blog .views-row:hover {
   transform: translateY(-6px);
+  box-shadow:
+    0 0 0 2px rgba(12, 163, 131, 0.35),
+    0 14px 34px rgba(0, 0, 0, 0.45);
 }
 
 /* =====================================================
-   IMAGE (MATCHES MOCKUP)
+   IMAGE
 ===================================================== */
 
-.blog-card__image {
+body.path-blog .views-field-field_featured_image,
+body.path-blog .views-field-field-featured-image {
   position: relative;
-  height: 360px;
   overflow: hidden;
 }
 
-.blog-card__image img {
+body.path-blog .views-field-field_featured_image img,
+body.path-blog .views-field-field-featured-image img {
   width: 100%;
-  height: 100%;
+  height: 420px;
   object-fit: cover;
-  object-position: center;
+  display: block;
+  border-radius: 12px 12px 0 0;
+
   filter: grayscale(100%);
-  transition: filter 0.4s ease;
+  transform: scale(1);
+  transition: filter 0.45s ease, transform 0.45s ease;
 }
 
-/* GREEN BAR */
-.blog-card__accent {
+/* GREEN BAR — visible by default */
+body.path-blog .views-field-field_featured_image::after,
+body.path-blog .views-field-field-featured-image::after {
+  content: "";
   position: absolute;
-  bottom: 0;
   left: 0;
-  height: 4px;
-  width: 0;
-  background: #0ca383;
-  transition: width 0.4s ease;
-}
-
-.blog-card:hover .blog-card__accent {
+  bottom: 0;
+  height: 6px;
   width: 100%;
+  background: #0ca383;
+  transition: opacity 0.25s ease;
 }
 
-.blog-card:hover img {
+/* IMAGE HOVER */
+body.path-blog .views-row:hover .views-field-field_featured_image img,
+body.path-blog .views-row:hover .views-field-field-featured-image img {
   filter: grayscale(0%);
+  transform: scale(1.04);
+}
+
+/* BAR DISAPPEARS ON HOVER */
+body.path-blog .views-row:hover .views-field-field_featured_image::after,
+body.path-blog .views-row:hover .views-field-field-featured-image::after {
+  opacity: 0;
 }
 
 /* =====================================================
-   CONTENT
+   TITLE + TEXT
 ===================================================== */
 
-.blog-card__content {
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
+body.path-blog .views-field-title {
+  padding: 1.2rem 1.6rem 0;
 }
 
-.blog-card__title {
-  font-size: 1.25rem;
+body.path-blog .views-field-title a {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.55rem;
+  font-weight: 900;
+  line-height: 1.25;
+}
+
+body.path-blog .views-row:hover .views-field-title a {
+  text-shadow: 0 0 18px rgba(12, 163, 131, 0.22);
+}
+
+body.path-blog .views-field-uid,
+body.path-blog .views-field-field-authored-by {
+  padding: 0.85rem 1.6rem 1.6rem;
+  font-size: 0.95rem;
+  opacity: 0.75;
+}
+
+body.path-blog .views-field-created {
+  display: none;
+}
+
+/* =====================================================
+   BLOG NAV — TOOLTIPS (FORCE VISIBLE)
+===================================================== */
+
+body.path-blog .side-icon-nav,
+body.path-blog .side-icon-nav--blog {
+  overflow: visible !important;
+  z-index: 9999;
+}
+
+body.path-blog .side-icon-nav ul,
+body.path-blog .side-icon-nav--blog ul,
+body.path-blog .side-icon-nav li,
+body.path-blog .side-icon-nav--blog li {
+  overflow: visible !important;
+}
+
+/* anchor must be positioning context */
+body.path-blog .side-icon-nav a,
+body.path-blog .side-icon-nav--blog a {
+  position: relative;
+  overflow: visible !important;
+}
+
+/* tooltip */
+body.path-blog .side-icon-nav a[data-tooltip]::after,
+body.path-blog .side-icon-nav--blog a[data-tooltip]::after {
+  content: attr(data-tooltip) !important;
+  position: absolute;
+  top: 50%;
+  right: calc(100% + 14px);
+  transform: translateY(-50%);
+
+  background: rgba(12, 18, 32, 0.96);
+  color: #fff;
+  padding: 0.45rem 0.7rem;
+  border-radius: 8px;
+
+  font-size: 0.75rem;
   font-weight: 700;
-  margin-bottom: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  z-index: 10000;
+  box-shadow: 0 0 14px rgba(12, 163, 131, 0.35);
+  transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s ease;
 }
 
-.blog-card__meta {
-  margin-top: auto;
-  font-size: 0.85rem;
-  opacity: 0.6;
+body.path-blog .side-icon-nav a[data-tooltip]:hover::after,
+body.path-blog .side-icon-nav--blog a[data-tooltip]:hover::after {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(-50%) translateX(-4px);
 }
+
+
+/* RIGHT ICON NAV — FORCE RIGHT (BLOG ONLY) */
+.side-icon-nav,
+.side-icon-nav--blog {
+  position: fixed;
+  top: 50%;
+  right: 2rem;
+  left: auto !important;
+  transform: translateY(-50%);
+  z-index: 200;
+}
+
+
+
+
+/* active/current page (optional class) */
+.side-icon-nav a.is-active,
+.side-icon-nav--blog a.is-active {
+  background: #0ca383;
+  color: #0c1220;
+  box-shadow: 0 0 16px rgba(12, 163, 131, 0.65);
+}
+
+/* =====================================================
+   BLOG — RIGHT ICON NAV CLEANUP
+   Remove dots / bullets safely
+===================================================== */
+
+body.path-blog .side-icon-nav,
+body.path-blog .side-icon-nav--blog {
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    /* kill any theme-added bullets/dots */
+    &::before {
+      content: none !important;
+      display: none !important;
+    }
+  }
+  /* =========================================
+   SIDE ICON NAV — TOOLTIPS (FINAL)
+========================================= */
+
+.side-icon-nav a {
+  position: relative;
+}
+
+/* Tooltip bubble */
+.side-icon-nav a[data-tooltip]::after {
+  content: attr(data-tooltip);
+
+  position: absolute;
+  right: calc(100% + 14px);
+  top: 50%;
+  transform: translateY(-50%);
+
+  background: rgba(12, 18, 32, 0.95);
+  color: #ffffff;
+
+  padding: 0.45rem 0.75rem;
+  border-radius: 6px;
+
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  white-space: nowrap;
+  pointer-events: none;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+/* Tooltip arrow */
+.side-icon-nav a[data-tooltip]::before {
+  content: "";
+  position: absolute;
+
+  right: calc(100% + 6px);
+  top: 50%;
+  transform: translateY(-50%);
+
+  border-width: 6px;
+  border-style: solid;
+  border-color: transparent transparent transparent rgba(12, 18, 32, 0.95);
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition: opacity 0.2s ease;
+}
+
+/* Show on hover */
+.side-icon-nav a:hover::after,
+.side-icon-nav a:hover::before {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Small lift for polish */
+.side-icon-nav a:hover::after {
+  transform: translateY(-50%) translateX(-2px);
+}
+
+}
+
 
 /* =====================================================
    RESPONSIVE
 ===================================================== */
 
-@media (max-width: 992px) {
-  .blog-grid {
+@media (max-width: 1100px) {
+  body.path-blog .view-id-blog .view-content.row {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (max-width: 576px) {
-  .blog-grid {
+@media (max-width: 640px) {
+  body.path-blog .view-id-blog .view-content.row {
     grid-template-columns: 1fr;
+  }
+
+  body.path-blog .views-field-field_featured_image img,
+  body.path-blog .views-field-field-featured-image img {
+    height: 320px;
+  }
+}
+/* =====================================================
+   BLOG — RIGHT ICON NAV (MATCH HOME / ABOUT EXACTLY)
+   STYLE ONLY — SAFE
+===================================================== */
+
+body.path-blog {
+
+  .side-icon-nav,
+  .side-icon-nav--blog {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  /* remove any bullets/dots injected by theme */
+  .side-icon-nav ul,
+  .side-icon-nav--blog ul,
+  .side-icon-nav li,
+  .side-icon-nav--blog li {
+    list-style: none !important;
+    margin: 0;
+    padding: 0;
+
+    &::before {
+      content: none !important;
+      display: none !important;
+    }
+  }
+
+  /* circular icon buttons */
+  .side-icon-nav a,
+  .side-icon-nav--blog a {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(30, 35, 51, 0.85);
+    color: #ffffff;
+    text-decoration: none;
+
+    transition:
+      background 0.25s ease,
+      box-shadow 0.25s ease,
+      transform 0.25s ease;
+  }
+
+  /* icon size */
+  .side-icon-nav i,
+  .side-icon-nav--blog i {
+    font-size: 1.15rem;
+    line-height: 1;
+  }
+
+  /* hover */
+  .side-icon-nav a:hover,
+  .side-icon-nav--blog a:hover {
+    background: #0ca383;
+    color: #0c1220;
+    transform: translateY(-2px);
+    box-shadow: 0 0 16px rgba(12, 163, 131, 0.55);
+  }
+
+  /* active page */
+  .side-icon-nav a.is-active,
+  .side-icon-nav--blog a.is-active {
+    background: #0ca383;
+    color: #0c1220;
+    box-shadow: 0 0 20px rgba(12, 163, 131, 0.75);
+  }
+}
+/* =====================================================
+   BLOG — RIGHT ICON NAV (GREEN DEFAULT, SAFE OVERRIDE)
+   ===================================================== */
+
+body.path-blog {
+
+  .side-icon-nav a,
+  .side-icon-nav--blog a {
+    background: #0ca383;              /* ✅ green default */
+    color: #0c1220;
+    box-shadow: 0 0 14px rgba(12, 163, 131, 0.45);
+  }
+
+  /* Icon color */
+  .side-icon-nav i,
+  .side-icon-nav--blog i {
+    color: #0c1220;
+  }
+
+  /* Hover: slightly brighter + lift (matches home/about) */
+  .side-icon-nav a:hover,
+  .side-icon-nav--blog a:hover {
+    background: #12c29a;               /* slightly brighter green */
+    box-shadow: 0 0 20px rgba(12, 163, 131, 0.7);
+    transform: translateY(-2px);
+  }
+
+  /* Active page (if class exists) */
+  .side-icon-nav a.is-active,
+  .side-icon-nav--blog a.is-active {
+    background: #0ca383;
+    box-shadow: 0 0 22px rgba(12, 163, 131, 0.75);
+  }
+}
+/* =====================================================
+   BLOG — RIGHT ICON NAV (COLOR + SPACING FIX)
+   Safe override only
+===================================================== */
+
+body.path-blog {
+
+  /* Container spacing from content */
+  .side-icon-nav,
+  .side-icon-nav--blog {
+    right: 3rem;              /* more breathing room from cards */
+  }
+
+  /* FORCE spacing between items */
+  .side-icon-nav ul,
+  .side-icon-nav--blog ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;              /* 👈 space between each icon */
+  }
+
+  /* Icon button */
+  .side-icon-nav a,
+  .side-icon-nav--blog a {
+    background: #0ca383;
+    color: #ffffff !important; /* 👈 force white */
+  }
+
+  /* FORCE icon color (Font Awesome overrides this otherwise) */
+  .side-icon-nav a i,
+  .side-icon-nav--blog a i,
+  .side-icon-nav a svg,
+  .side-icon-nav--blog a svg {
+    color: #ffffff !important;
+    fill: #ffffff !important;
+  }
+
+  /* Hover stays green, icon stays white */
+  .side-icon-nav a:hover,
+  .side-icon-nav--blog a:hover {
+    background: #0ca383;
+  }
+}
+/* =====================================================
+   BLOG — ICON NAV TOOLTIPS (MATCH HOME / ABOUT)
+===================================================== */
+
+body.path-blog {
+
+  .side-icon-nav a {
+    position: relative;
+  }
+
+  /* Tooltip bubble */
+  .side-icon-nav a[aria-label]::after {
+    content: attr(aria-label);
+
+    position: absolute;
+    right: calc(100% + 12px);
+    top: 50%;
+    transform: translateY(-50%);
+
+    background: #0ca383;
+    color: #fff;
+
+    padding: 0.45rem 0.9rem;
+    border-radius: 999px; /* pill */
+
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    white-space: nowrap;
+
+    opacity: 0;
+    pointer-events: none;
+
+    box-shadow: 0 0 14px rgba(12, 163, 131, 0.45);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+
+    z-index: 999;
+  }
+
+  /* Tooltip arrow */
+  .side-icon-nav a[aria-label]::before {
+    content: "";
+
+    position: absolute;
+    right: calc(100% + 4px);
+    top: 50%;
+    transform: translateY(-50%);
+
+    border-width: 6px;
+    border-style: solid;
+    border-color: transparent transparent transparent #0ca383;
+
+    opacity: 0;
+    transition: opacity 0.2s ease;
+
+    pointer-events: none;
+  }
+
+  /* Show tooltip on hover */
+  .side-icon-nav a:hover::after,
+  .side-icon-nav a:hover::before {
+    opacity: 1;
+  }
+}
+
+
+/* =========================================
+   BLOG — RESERVE SPACE FOR RIGHT ICON NAV
+   ========================================= */
+
+body.path-blog {
+
+  /* Space between content and fixed icon nav */
+  .view-id-blog .view-content.row {
+    padding-right: 7.5rem; /* solves overlap */
   }
 }
