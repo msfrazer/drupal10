@@ -15,7 +15,6 @@ Thumbs.db
 .env.*
 *.local
 web/sites/*/settings.local.php
-web/sites/*/settings.php
 
 ############################
 # Drupal files directory (user uploads)
@@ -50,25 +49,20 @@ yarn-error.log*
 
 ############################
 # Theme build output (compiled CSS/JS)
-# Keep your source SCSS + Twig templates tracked.
 ############################
 web/themes/custom/**/css/*
 web/themes/custom/**/js/*
 !web/themes/custom/**/css/.gitkeep
 !web/themes/custom/**/js/.gitkeep
-# Local-only tooling
-node_modules/
-package.json
-package-lock.json
-vendor/
+
+############################
+# Drupal contrib & libraries
+############################
 web/modules/contrib/
 web/libraries/
 
+############################
 # Local temp / backups
+############################
 *.bak
 tmp_test
-.DS_Store
-
-# Compiled CSS
-scss/**/*.css
-scss/**/*.min.css
