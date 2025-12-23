@@ -1,0 +1,161 @@
+{#
+  PORTFOLIO PAGE — Custom Static Layout
+  Path: /portfolio
+#}
+
+{{ attach_library('custom_bootstrap_sass/global-styling') }}
+{{ attach_library('custom_bootstrap_sass/fontawesome') }}
+
+{{ page_top }}
+
+<main id="main-content" class="portfolio-page" role="main">
+{# =========================
+   RIGHT ICON NAV (WITH TOOLTIPS)
+   ========================= #}
+<nav class="icon-nav" aria-label="Section navigation">
+  <ul>
+    <li>
+      <a href="/" aria-label="Home">
+        <i class="fa-solid fa-house"></i>
+        <span class="icon-tooltip">Home</span>
+      </a>
+    </li>
+    <li>
+      <a href="/about-me" aria-label="About Me">
+        <i class="fa-solid fa-user"></i>
+        <span class="icon-tooltip">About</span>
+      </a>
+    </li>
+    <li>
+      <a href="/portfolio" class="is-active" aria-label="Portfolio">
+        <i class="fa-solid fa-briefcase"></i>
+        <span class="icon-tooltip">Portfolio</span>
+      </a>
+    </li>
+    <li>
+      <a href="/blog" aria-label="Blog">
+        <i class="fa-solid fa-pen"></i>
+        <span class="icon-tooltip">Blog</span>
+      </a>
+    </li>
+    <li>
+      <a href="/contact" aria-label="Contact">
+        <i class="fa-solid fa-envelope"></i>
+        <span class="icon-tooltip">Contact</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+
+
+  {# =========================
+     HERO / INTRO
+     ========================= #}
+  <section class="portfolio-hero">
+    <h1 class="portfolio-title">
+      MY <span>PORTFOLIO</span>
+    </h1>
+
+    <p class="portfolio-intro">
+      Hey, I’m Michelle. I build beautiful, interactive web experiences that blend
+      creativity with code. For me, frontend development isn’t just about pixels and
+      performance—it’s about crafting moments that feel intuitive, engaging, and a
+      little bit magical.
+    </p>
+  </section>
+
+  {# =========================
+     PORTFOLIO GRID
+     ========================= #}
+  <section class="portfolio-grid">
+
+    <article class="portfolio-card">
+  <img src="/themes/custom/custom_bootstrap_sass/images/port17.jpg" alt="Project 1">
+
+  <div class="portfolio-overlay">
+    <h3>Project Source</h3>
+
+    <div class="portfolio-icons">
+      <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      <a href="#" aria-label="Linkedin"><i class="fa-brands fa-linkedin-in"></i></a>
+      <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+    </div>
+  </div>
+</article>
+
+   <article class="portfolio-card">
+  <img src="/themes/custom/custom_bootstrap_sass/images/port2.jpg" alt="Project 1">
+
+  <div class="portfolio-overlay">
+    <h3>Project Source</h3>
+
+    <div class="portfolio-icons">
+      <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      <a href="#" aria-label="Behance"><i class="fa-brands fa-linkedin-in"></i></a>
+      <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+    </div>
+  </div>
+</article>
+
+   <article class="portfolio-card">
+  <img src="/themes/custom/custom_bootstrap_sass/images/port11.jpg" alt="Project 1">
+
+  <div class="portfolio-overlay">
+    <h3>Project Source</h3>
+
+    <div class="portfolio-icons">
+      <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      <a href="#" aria-label="Behance"><i class="fa-brands fa-linkedin-in"></i></a>
+      <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+    </div>
+  </div>
+</article>
+
+    <article class="portfolio-card">
+  <img src="/themes/custom/custom_bootstrap_sass/images/port13.jpg" alt="Project 1">
+
+  <div class="portfolio-overlay">
+    <h3>Project Source</h3>
+
+    <div class="portfolio-icons">
+      <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      <a href="#" aria-label="Behance"><i class="fa-brands fa-linkedin-in"></i></a>
+      <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+    </div>
+  </div>
+</article>
+
+    <article class="portfolio-card">
+  <img src="/themes/custom/custom_bootstrap_sass/images/port12.jpg" alt="Project 1">
+
+  <div class="portfolio-overlay">
+    <h3>Project Source</h3>
+
+    <div class="portfolio-icons">
+      <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      <a href="#" aria-label="Behance"><i class="fa-brands fa-linkedin-in"></i></a>
+      <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+    </div>
+  </div>
+</article>
+
+    <article class="portfolio-card">
+  <img src="/themes/custom/custom_bootstrap_sass/images/port10.jpeg" alt="Project 1">
+
+  <div class="portfolio-overlay">
+    <h3>Project Source</h3>
+
+    <div class="portfolio-icons">
+      <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      <a href="#" aria-label="Behance"><i class="fa-brands fa-linkedin-in"></i></a>
+      <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+    </div>
+  </div>
+</article>
+
+  </section>
+
+</main>
+
+{{ page_bottom }}
