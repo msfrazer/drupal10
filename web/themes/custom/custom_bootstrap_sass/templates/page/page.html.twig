@@ -1,8 +1,6 @@
 {#
-  =========================================
-  GLOBAL PAGE TEMPLATE — SUBPAGES ONLY
-  Excludes homepage
-  =========================================
+  GLOBAL PAGE TEMPLATE
+  Used by all pages including /contact
 #}
 
 {{ attach_library('custom_bootstrap_sass/global-styling') }}
@@ -11,42 +9,65 @@
 {{ page_top }}
 
 {# =========================
-   SUBPAGE ICON NAV
+   GLOBAL HEADER + NAV
    ========================= #}
-{% if not is_front %}
-<nav class="subpage-icon-nav" aria-label="Primary navigation">
-  <ul class="subpage-icon-nav__list">
-    <li>
-      <a href="/" aria-label="Home" class="subpage-icon-nav__item">
-        <i class="fa-solid fa-house"></i>
-      </a>
-    </li>
-    <li>
-      <a href="/about-me" aria-label="About" class="subpage-icon-nav__item">
-        <i class="fa-solid fa-user"></i>
-      </a>
-    </li>
-    <li>
-      <a href="/portfolio" aria-label="Portfolio" class="subpage-icon-nav__item">
-        <i class="fa-solid fa-briefcase"></i>
-      </a>
-    </li>
-    <li>
-      <a href="/blog" aria-label="Blog" class="subpage-icon-nav__item">
-        <i class="fa-solid fa-pen-nib"></i>
-      </a>
-    </li>
-    <li>
-      <a href="/contact" aria-label="Contact" class="subpage-icon-nav__item">
-        <i class="fa-solid fa-envelope"></i>
-      </a>
-    </li>
-  </ul>
-</nav>
+{% if page.header %}
+  <header class="site-header" role="banner">
+    {{ page.header }}
+  </header>
 {% endif %}
 
+{% if page.primary_menu %}
+  <nav class="primary-nav" aria-label="Main navigation">
+    {{ page.primary_menu }}
+  </nav>
+{% endif %}
+
+{# =========================
+   MAIN CONTENT
+   ========================= #}
 <main id="main-content" role="main">
-  {{ page.content }}
+
+  {% if path('<current>') == '/contact' %}
+
+    <section class="contact-section">
+      <h1 class="contact-page-title">
+        CONTACT <span>ME</span>
+      </h1>
+
+      <div class="contact-grid">
+
+        <div class="contact-info">
+          <h2>Contact Me Here</h2>
+
+          <p>
+            I’m always open to discussing new projects, creative collaborations,
+            or professional opportunities. Please use the form below and I’ll
+            respond promptly.
+          </p>
+
+          <ul class="contact-details">
+            <li><i class="fa-solid fa-location-dot"></i> Greenbelt, MD USA</li>
+            <li><i class="fa-solid fa-envelope"></i> southerlandfrazerm@gmail.com</li>
+            <li><i class="fa-solid fa-graduation-cap"></i> Winston Salem State — BS</li>
+            <li><i class="fa-solid fa-graduation-cap"></i> Full Sail — MS</li>
+            <li><i class="fa-solid fa-phone"></i> 240-536-0785</li>
+          </ul>
+        </div>
+
+        <div class="contact-form-wrapper">
+          {{ page.content }}
+        </div>
+
+      </div>
+    </section>
+
+  {% else %}
+
+    {{ page.content }}
+
+  {% endif %}
+
 </main>
 
 {{ page_bottom }}
