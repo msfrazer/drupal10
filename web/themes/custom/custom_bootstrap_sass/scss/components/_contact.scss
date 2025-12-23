@@ -3,7 +3,7 @@
 ===================================================== */
 
 body.path-contact {
-  background: #0c1220;
+  //background: #0c1220;
   color: #ffffff;
 }
 
@@ -74,6 +74,7 @@ body.path-contact {
     max-width: 42ch;
     line-height: 1.7;
     opacity: 0.9;
+    font-size: 1.2rem;
   }
 }
 
@@ -84,7 +85,7 @@ body.path-contact {
 .contact-details {
   list-style: none;
   padding: 0;
-  margin: 2rem 0 0;
+  margin: 3rem 0 0;
 
   li {
     display: flex;
@@ -109,6 +110,7 @@ body.path-contact {
   background: rgba(255, 255, 255, 0.035);
   border-radius: 22px;
   padding: 2.5rem;
+
 }
 
 /* Drupal form normalization */
@@ -153,15 +155,15 @@ body.path-contact {
 .contact-form-wrapper .form-actions {
   display: flex;
   gap: 1rem;
-  margin-top: 1rem;
+  margin-top: 1.25rem;
 }
 
 .contact-form-wrapper .form-submit {
   background: #0ca383;
-  color: #0c1220;
+  color: #fff;
   border-radius: 999px;
   padding: 0.8rem 2.2rem;
-  font-weight: 800;
+  font-weight: 400;
   border: none;
 }
 
@@ -171,7 +173,7 @@ body.path-contact {
 
 .subpage-icon-nav {
   position: fixed;
-  top: 50%;
+  //top: 40%;
   right: 2.25rem;
   transform: translateY(-50%);
   z-index: 300;
@@ -309,4 +311,240 @@ body.path-contact .subpage-icon-nav__item:hover {
 
 body.path-contact .subpage-icon-nav__item:hover i {
   color: #0c1220;
+}
+/* =====================================================
+   CONTACT FORM — HEIGHT & SPACING REDUCTION
+   Safe override (does NOT affect layout structure)
+===================================================== */
+
+body.path-contact {
+
+  /* Shrink the form card itself */
+  .contact-form-wrapper {
+    padding: 1.75rem; // was ~2.25rem+
+  }
+
+  /* Reduce spacing between fields */
+  .contact-form-wrapper .form-item {
+    margin-bottom: 0.9rem;
+  }
+
+  /* Inputs */
+  .contact-form-wrapper input[type="text"],
+  .contact-form-wrapper input[type="email"],
+  .contact-form-wrapper input[type="tel"],
+  .contact-form-wrapper input[type="subject"],
+  .contact-form-wrapper select {
+    height: 44px;              // ⬅ key change
+    padding: 0.6rem 0.9rem;    // less vertical padding
+    border-radius: 999px;      // keep pill look
+    font-size: 0.95rem;
+  }
+
+  /* Textarea (message field) */
+  .contact-form-wrapper textarea {
+    min-height: 130px;         // ⬅ MUCH shorter
+    padding: 0.75rem 0.9rem;
+    resize: vertical;
+    font-size: 0.95rem;
+  }
+
+  /* Labels */
+  .contact-form-wrapper label {
+    margin-bottom: 0.35rem;
+    font-size: 0.85rem;
+  }
+
+  /* Buttons spacing */
+  .contact-form-wrapper .form-actions {
+    margin-top: 1rem;
+  }
+}
+/* =====================================
+   CONTACT FORM — SIZE TUNING (SAFE)
+   Append to END of _contact.scss
+===================================== */
+
+
+.contact-form-wrapper {
+  padding: 1.75rem 2rem; // was too tall
+}
+
+/* Tighten spacing between fields */
+.contact-form-wrapper .form-item {
+  margin-bottom: 0.9rem;
+}
+
+/* Reduce input height */
+.contact-form-wrapper input,
+.contact-form-wrapper select {
+  height: 44px;              // tighter than before
+  padding: 0 1rem;
+  font-size: 0.95rem;
+}
+
+/* Reduce textarea (Message) height */
+.contact-form-wrapper textarea {
+  min-height: 140px;         // KEY FIX (was huge)
+  max-height: 180px;
+  padding: 0.75rem 1rem;
+  resize: vertical;
+}
+
+/* Reduce label spacing */
+.contact-form-wrapper label {
+  margin-bottom: 0.25rem;
+  font-size: 0.9rem;
+}
+
+/* Buttons spacing */
+.contact-form-wrapper .form-actions {
+  margin-top: 1rem;
+  gap: 0.75rem;
+}
+/* =====================================
+   CONTACT FORM — FINAL TIGHTENING
+   Append BELOW previous tuning block
+===================================== */
+
+/* Add breathing room between label and field */
+.contact-form-wrapper label {
+  display: inline-block;
+  margin-bottom: 0.45rem;   // 👈 space between label + field
+}
+
+/* Make inputs less tall + less pill-like */
+.contact-form-wrapper input,
+.contact-form-wrapper select {
+  height: 40px;             // 👈 shorter
+  padding: 0 0.9rem;
+  border-radius: 10px;      // 👈 was too round
+}
+
+/* Tighten textarea shape */
+.contact-form-wrapper textarea {
+  min-height: 120px;        // 👈 shorter message field
+  max-height: 160px;
+  padding: 0.75rem 0.9rem;
+  border-radius: 12px;      // 👈 subtle rounding
+}
+
+/* Optional: slightly reduce inner card radius (cleaner look) */
+.contact-form-wrapper {
+  border-radius: 16px;      // was very bubbly before
+}
+/* =====================================================
+   CONTACT FORM — SIZE & SPACING REFINEMENT
+   File: scss/components/_contact.scss
+===================================================== */
+
+.contact-form-wrapper {
+
+  /* Reduce overall padding slightly */
+  padding: 2rem;
+
+  /* Each form item */
+  .form-item {
+    margin-bottom: 1.25rem; // space between fields
+  }
+
+  /* Labels */
+  label {
+    display: block;
+    margin-bottom: 0.4rem; // 👈 space between label & input
+    font-size: 0.9rem;
+    font-weight: 600;
+    opacity: 0.9;
+  }
+
+  /* Inputs + textarea */
+  input,
+  textarea {
+    height: auto;
+    min-height: unset;
+
+    padding: 0.55rem 0.9rem; // 👈 reduces tall pill look
+    font-size: 0.9rem;
+
+    border-radius: 10px; // 👈 less round (NOT pills)
+  }
+
+  /* Message field specifically */
+  textarea {
+    min-height: 140px; // 👈 shorter message box
+    resize: vertical;
+  }
+
+  /* Buttons */
+  .form-actions {
+    margin-top: 1.25rem;
+
+  }
+}
+/* ======================================================
+   CONTACT FORM — TIGHTENED SPACING & INPUTS
+   File: scss/components/_contact.scss
+   ====================================================== */
+
+/* --- LABEL SPACING --- */
+.contact-section label {
+  display: block;
+  margin-bottom: 0.35rem; // space between label & field
+  font-size: 0.95rem;
+}
+
+/* --- TEXT + EMAIL + SUBJECT INPUTS --- */
+.contact-section input[type="text"],
+.contact-section input[type="email"],
+.contact-section input[type="subject"],
+.contact-section input {
+  height: 44px;                // ⬅️ shorter fields
+  padding: 0.5rem 0.85rem;
+  border-radius: 10px;         // ⬅️ less pill-shaped
+  font-size: 0.95rem;
+}
+
+/* --- TEXTAREA (MESSAGE) --- */
+.contact-section textarea {
+  min-height: 140px;           // ⬅️ shorter message box
+  padding: 0.75rem 0.85rem;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  resize: vertical;            // allow manual resize if needed
+}
+
+/* --- SPACE BETWEEN FIELDS --- */
+.contact-section .form-item {
+  margin-bottom: 1.1rem;       // tighter vertical rhythm
+}
+
+/* --- BUTTON ROW POSITIONING --- */
+.contact-section .form-actions {
+  margin-top: 0.75rem;         // ⬅️ pulls buttons UP
+  display: flex;
+  gap: 1rem;
+}
+
+/* --- BUTTON HEIGHT (OPTIONAL, MATCH INPUTS) --- */
+.contact-section .form-actions .button {
+  padding: 0.6rem 1.6rem;
+  font-size: 0.95rem;
+}
+/* ================================
+   CONTACT FORM — CENTER BUTTONS
+   ================================ */
+
+.contact-form-wrapper {
+
+  .form-actions {
+    display: flex;
+    justify-content: center; /* ✅ centers buttons */
+    gap: 1rem;               /* spacing between buttons */
+    margin-top: 1.5rem;      /* pulls buttons closer to textarea */
+  }
+
+  .form-actions input,
+  .form-actions button {
+    margin: 0; /* override Drupal defaults */
+  }
 }

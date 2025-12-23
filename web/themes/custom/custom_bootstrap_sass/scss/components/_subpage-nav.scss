@@ -118,3 +118,101 @@ body:not(.path-frontpage) .subpage-header .is-active a {
   background: #0ca383;
   box-shadow: 0 0 18px rgba(12, 163, 131, 0.65);
 }
+/* =====================================
+   ICON NAV TOOLTIP (ARIA-LABEL BASED)
+   ===================================== */
+
+.subpage-icon-nav a {
+  position: relative;
+}
+
+/* Tooltip pill */
+.subpage-icon-nav a::before {
+  content: attr(aria-label);
+  position: absolute;
+  right: calc(100% + 12px);
+  top: 50%;
+  transform: translateY(-50%) translateX(10px);
+  opacity: 0;
+
+  background: #0ca383;
+  color: #ffffff; /* ✅ white text */
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+
+  pointer-events: none;
+  transition: all 0.25s ease;
+}
+
+/* Show on hover */
+.subpage-icon-nav a:hover::before {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+/* ================================
+   SUBPAGE ICON NAV — TOOLTIP PILLS
+   ================================ */
+
+.subpage-icon-nav {
+  position: fixed;
+  right: 2.5rem;
+  top: 75%;
+  transform: translateY(-50%);
+  z-index: 50;
+
+  a {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0.6rem 0;
+
+    /* Tooltip pill */
+    &::before {
+      content: attr(data-tooltip);
+      position: absolute;
+      right: 120%;
+      top: 50%;
+      transform: translateY(-50%) translateX(10px);
+      opacity: 0;
+
+      background: #0ca383;
+     //color: #0c1220;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.35rem 0.9rem;
+      border-radius: 999px;
+      white-space: nowrap;
+
+      pointer-events: none;
+      transition: all 0.25s ease;
+    }
+
+    /* Tooltip arrow */
+    &::after {
+      content: '';
+      position: absolute;
+      right: 110%;
+      top: 50%;
+      transform: translateY(-50%);
+      opacity: 0;
+
+      border-width: 6px;
+      border-style: solid;
+      border-color: transparent transparent transparent #0ca383;
+
+      transition: opacity 0.25s ease;
+    }
+
+    &:hover::before,
+    &:hover::after {
+      opacity: 1;
+      transform: translateY(-50%) translateX(0);
+    }
+  }
+}
