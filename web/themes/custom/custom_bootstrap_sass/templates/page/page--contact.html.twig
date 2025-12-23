@@ -1,7 +1,71 @@
+{#
+  =========================================
+  CONTACT PAGE TEMPLATE
+  =========================================
+#}
+
+{{ attach_library('custom_bootstrap_sass/global-styling') }}
+{{ attach_library('custom_bootstrap_sass/contact-page') }}
+{{ attach_library('custom_bootstrap_sass/fontawesome') }}
+
 {{ page_top }}
 
-<section class="contact-section">
-  {{ page.content }}
-</section>
+{# =========================
+   RIGHT ICON NAV (same as About)
+   ========================= #}
+<nav class="subpage-icon-nav" aria-label="Section navigation">
+  <ul class="subpage-icon-nav__list">
+    <li><a href="/" aria-label="Home" data-tooltip="Home"><i class="fa-solid fa-house"></i></a></li>
+    <li><a href="/about-me" aria-label="About" data-tooltip="About"><i class="fa-solid fa-user"></i></a></li>
+    <li><a href="/portfolio" aria-label="Portfolio" data-tooltip="Portfolio"><i class="fa-solid fa-briefcase"></i></a></li>
+    <li><a href="/blog" aria-label="Blog" data-tooltip="Blog"><i class="fa-solid fa-pen-nib"></i></a></li>
+    <li class="is-active"><a href="/contact" aria-label="Contact" data-tooltip="Contact"><i class="fa-solid fa-envelope"></i></a></li>
+  </ul>
+</nav>
+
+<main id="main-content" class="contact-page">
+
+  {# =========================
+     HEADER WITH GHOST TITLE
+     ========================= #}
+<header class="contact-hero">
+  <h1>
+    CONTACT <span>ME</span>
+  </h1>
+  <span class="hero-bg-text">MY INFORMATION</span>
+</header>
+
+  {# =========================
+     CONTACT CONTENT
+     ========================= #}
+  <section class="contact-section">
+    <div class="contact-grid">
+
+      <div class="contact-info">
+        <h2>Contact Me Here</h2>
+
+        <p>
+          I’m always open to discussing new projects, creative collaborations,
+          or professional opportunities. Please use the form below and I’ll
+          respond promptly.
+        </p>
+
+        <ul class="contact-details">
+          <li><i class="fa-solid fa-location-dot"></i> Greenbelt, MD USA</li>
+          <li><i class="fa-solid fa-envelope"></i> southerlandfrazerm@gmail.com</li>
+          <li><i class="fa-solid fa-graduation-cap"></i> Winston Salem State — BS</li>
+          <li><i class="fa-solid fa-graduation-cap"></i> Full Sail — MS</li>
+          <li><i class="fa-solid fa-phone"></i> 240-536-0785</li>
+        </ul>
+      </div>
+
+      <div class="contact-form-wrapper">
+        {{ page.content }}
+      </div>
+
+    </div>
+  </section>
+
+</main>
 
 {{ page_bottom }}
