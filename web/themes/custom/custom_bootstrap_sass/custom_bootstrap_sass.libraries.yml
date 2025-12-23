@@ -31,6 +31,10 @@ about-me:
     theme:
       css/components/about-me.css: {}
 
+contact-page:
+  css:
+    theme:
+      css/contact-page.css: { weight: 999 }
 
 fontawesome:
   css:
