@@ -68,3 +68,7 @@ web/libraries/
 *.bak
 tmp_test
 .DS_Store
+
+# Compiled CSS
+scss/**/*.css
+scss/**/*.min.css
