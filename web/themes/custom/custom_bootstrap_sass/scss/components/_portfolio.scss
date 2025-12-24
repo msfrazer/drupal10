@@ -1,0 +1,300 @@
+/* =====================================================
+   PORTFOLIO PAGE — Static Twig Layout
+===================================================== */
+
+.portfolio-page {
+  background: radial-gradient(circle at top, #1b2338, #0c1220 70%);
+  color: #ffffff;
+  padding-bottom: 6rem;
+}
+
+/* ===== HERO ===== */
+
+.portfolio-hero {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 7rem 2rem 4rem;
+  text-align: center;
+}
+
+.portfolio-title {
+  position: relative;
+  font-size: clamp(3rem, 6vw, 4.5rem);
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  margin-bottom: 1.5rem;
+  z-index: 1;
+
+  span {
+    color: #0ca383;
+  }
+
+  &::after {
+    content: "MY WORK";
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: clamp(5rem, 12vw, 9rem);
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    color: #ffffff;
+    opacity: 0.05;
+    z-index: -1;
+    pointer-events: none;
+    white-space: nowrap;
+  }
+}
+
+
+.portfolio-intro {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #c9d1e4;
+}
+
+/* ===== GRID ===== */
+
+.portfolio-grid {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 3rem 2rem 0;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+}
+
+@media (max-width: 992px) {
+  .portfolio-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== CARD ===== */
+
+.portfolio-card {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  height: 320px; /* adjust if you want slightly taller */
+  display: flex;
+  align-items: stretch;
+  background: #111827;
+  max-width: 420px;
+  margin: 0 auto;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.4);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.portfolio-card > * {
+  height: 100%;
+}
+
+.portfolio-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 28px 60px rgba(0, 0, 0, 0.55);
+}
+
+
+.portfolio-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  object-position: center;
+
+  /* subtle polish only */
+  transition: transform 0.5s ease, filter 0.4s ease;
+}
+/* ===== HOVER OVERLAY ===== */
+
+.portfolio-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(12, 163, 131, 0.25);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.portfolio-card:hover::after {
+  opacity: 1;
+}
+.portfolio-card__image {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+}
+
+/* Subtle image zoom on hover */
+
+.portfolio-card:hover img {
+  transform: scale(1.04);
+  filter: brightness(0.75);
+}
+.portfolio-overlay {
+  position: absolute;
+  inset: 0;
+
+  /*  green */
+  background-color: #27ae60;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.35s ease, visibility 0.35s ease;
+
+  z-index: 2;
+}
+.portfolio-card:hover .portfolio-overlay {
+  opacity: 1;
+  visibility: visible;
+}
+
+.portfolio-card__image,
+.portfolio-card img {
+  width: 100%;
+  height: 100%;
+}
+/* Force the media wrapper (div or link) to actually fill the card */
+.portfolio-card > a,
+.portfolio-card > .portfolio-card__image,
+.portfolio-card__image > a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* If the link is the wrapper, make it stretch */
+.portfolio-card a {
+  height: 100%;
+}
+
+/* Ensure the img always fills the wrapper */
+.portfolio-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.portfolio-icons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.portfolio-icons a {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #0c1220;
+  color: #ffffff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.portfolio-icons a i {
+  font-size: 1.1rem;
+}
+
+.portfolio-icons a:hover {
+  background: #ffffff;
+  color: #27ae60;
+  transform: translateY(-2px);
+}
+
+
+.icon-nav {
+  position: fixed;
+  right: 23px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 100;
+}
+
+.icon-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.icon-nav a {
+  position: relative;
+
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+
+  background: #2a2f3a;
+  color: #bfc6d5;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-decoration: none;
+
+  transition: background 0.3s ease, color 0.3s ease;
+}
+.icon-nav a:hover,
+.icon-nav a.is-active {
+  background: #27ae60;
+  color: #ffffff;
+}
+.icon-tooltip {
+  position: absolute;
+  right: 56px; /* distance from icon */
+  top: 50%;
+  transform: translateY(-50%) translateX(10px);
+
+  background: #27ae60;
+  color: #ffffff;
+
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+
+  opacity: 0;
+  pointer-events: none;
+
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+.icon-nav a:hover .icon-tooltip {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+
+/* Reserve space for right-side icon nav */
+//body.path-portfolio {
+  //padding-right: 96px;
+//}
+
+@media (max-width: 992px) {
+  .icon-nav {
+    display: none;
+  }
+}
