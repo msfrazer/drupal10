@@ -1,30 +1,69 @@
+{#
+  BLOG PAGE — CLEAN BASELINE
+  Purpose: show blog content exactly as Drupal outputs it
+#}
+
 {{ attach_library('custom_bootstrap_sass/global-styling') }}
-{{ attach_library('custom_bootstrap_sass/blog') }}
 
 {{ page_top }}
 
-{# RIGHT SIDE ICON NAV #}
-<nav class="side-icon-nav side-icon-nav--blog" aria-label="Blog navigation">
+{# =========================
+   RIGHT ICON NAV (WITH TOOLTIPS)
+   ========================= #}
+<nav class="icon-nav" aria-label="Section navigation">
   <ul>
-    <li><a href="/"        aria-label="Home"      title="Home"      data-tooltip="Home"><i class="fa-solid fa-house"></i></a></li>
-    <li><a href="/about-me" aria-label="About"     title="About Me"  data-tooltip="About Me"><i class="fa-solid fa-user"></i></a></li>
-    <li><a href="/portfolio" aria-label="Portfolio" title="Portfolio" data-tooltip="Portfolio"><i class="fa-solid fa-briefcase"></i></a></li>
-    <li class="is-active"><a href="/blog" aria-label="Blog" title="Blog" data-tooltip="Blog"><i class="fa-solid fa-pen-nib"></i></a></li>
-    <li><a href="/contact" aria-label="Contact" title="Contact" data-tooltip="Contact"><i class="fa-solid fa-envelope"></i></a></li>
+    <li>
+      <a href="/" aria-label="Home">
+        <i class="fa-solid fa-house"></i>
+        <span class="icon-tooltip">Home</span>
+      </a>
+    </li>
+    <li>
+      <a href="/about-me" aria-label="About Me">
+        <i class="fa-solid fa-user"></i>
+        <span class="icon-tooltip">About</span>
+      </a>
+    </li>
+    <li>
+      <a href="/portfolio" class="is-active" aria-label="Portfolio">
+        <i class="fa-solid fa-briefcase"></i>
+        <span class="icon-tooltip">Portfolio</span>
+      </a>
+    </li>
+    <li>
+      <a href="/blog" aria-label="Blog">
+        <i class="fa-solid fa-pen"></i>
+        <span class="icon-tooltip">Blog</span>
+      </a>
+    </li>
+    <li>
+      <a href="/contact" aria-label="Contact">
+        <i class="fa-solid fa-envelope"></i>
+        <span class="icon-tooltip">Contact</span>
+      </a>
+    </li>
   </ul>
 </nav>
 
-
-
-{# HERO #}
 <section class="subpage-hero subpage-hero--blog">
+
+  {# Background word #}
+  <div class="subpage-hero__bg-text" aria-hidden="true">
+    BLOGS
+  </div>
+
+  {# Foreground title #}
   <h1 class="subpage-hero__title">
     MY <span>BLOGS</span>
   </h1>
+</div>
 </section>
 
-<main id="main-content" class="blog-page">
-  {{ page.content }}
+
+<main id="main-content" class="blog-page" role="main">
+  <div class="blog-page__inner">
+    {{ page.content }}
+  </div>
 </main>
 
 {{ page_bottom }}
