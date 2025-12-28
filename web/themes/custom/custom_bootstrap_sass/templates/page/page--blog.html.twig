@@ -13,31 +13,31 @@
 <nav class="icon-nav" aria-label="Section navigation">
   <ul>
     <li>
-      <a href="/" aria-label="Home">
+<a href="/" class="{{ path('<current>') == '/' ? 'is-active' }}">
         <i class="fa-solid fa-house"></i>
         <span class="icon-tooltip">Home</span>
       </a>
     </li>
     <li>
-      <a href="/about-me" aria-label="About Me">
+<a href="/about-me" class="{{ path('<current>') == '/about-me' ? 'is-active' }}">
         <i class="fa-solid fa-user"></i>
         <span class="icon-tooltip">About</span>
       </a>
     </li>
     <li>
-      <a href="/portfolio" class="is-active" aria-label="Portfolio">
+<a href="/portfolio" class="{{ path('<current>') == '/portfolio' ? 'is-active' }}">
         <i class="fa-solid fa-briefcase"></i>
         <span class="icon-tooltip">Portfolio</span>
       </a>
     </li>
-    <li>
-      <a href="/blog" aria-label="Blog">
+      <a href="/blog" class="{{ path('<current>') == '/blog' ? 'is-active' }}">
+
         <i class="fa-solid fa-pen"></i>
         <span class="icon-tooltip">Blog</span>
       </a>
     </li>
     <li>
-      <a href="/contact" aria-label="Contact">
+  <a href="/contact" class="{{ path('<current>') == '/contact' ? 'is-active' }}">
         <i class="fa-solid fa-envelope"></i>
         <span class="icon-tooltip">Contact</span>
       </a>

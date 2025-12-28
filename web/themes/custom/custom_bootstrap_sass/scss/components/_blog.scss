@@ -1466,3 +1466,53 @@ body.path-blog {
   }
 
 }
+/* DEFAULT (inactive) */
+.icon-nav a,
+.side-icon-nav a {
+  background: #2a2e35;
+  color: #ffffff;
+}
+
+/* HOVER */
+.icon-nav a:hover,
+.side-icon-nav a:hover {
+  background: #0ca383;
+  color: #0c1220;
+}
+
+/* ACTIVE PAGE ONLY */
+.icon-nav a.is-active,
+.side-icon-nav a.is-active {
+  background: #0ca383;
+  color: #0c1220;
+  box-shadow: 0 0 16px rgba(12, 163, 131, 0.6);
+}
+/* ===============================
+   RESPONSIVE GRID
+================================ */
+
+@media (max-width: 1200px) {
+  .blog-grid,
+  .portfolio-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .blog-grid,
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+
+  article.node--view-mode-teaser {
+    max-width: 520px;
+    margin: 0 auto;
+  }
+}
+@media (max-width: 768px) {
+  body.path-blog article.node--type-blog.node--view-mode-teaser img,
+  body.path-portfolio article.node--type-portfolio img {
+    height: 220px;
+  }
+}
