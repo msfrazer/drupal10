@@ -160,10 +160,11 @@ body:not(.path-frontpage) .subpage-header .is-active a {
 
 .subpage-icon-nav {
   position: fixed;
-  right: 2.5rem;
-  top: 75%;
-  transform: translateY(-50%);
-  z-index: 50;
+  right: 2rem;
+  bottom: -10rem; // ⬅ moves nav up
+  z-index: 1000;
+}
+
 
   a {
     position: relative;
@@ -215,4 +216,98 @@ body:not(.path-frontpage) .subpage-header .is-active a {
       transform: translateY(-50%) translateX(0);
     }
   }
+
+  /* ======================================
+   ACTIVE NAV ICON — BLOG PAGE ONLY
+====================================== */
+
+body.path-blog {
+  .subpage-icon-nav a.is-active {
+    color: #ffffff; // white icon
+  }
+}
+
+
+/* CONTACT NAV — stop all icons from being green by default */
+body.path-contact {
+
+  .icon-nav a,
+  .side-icon-nav a {
+    background: rgba(255, 255, 255, 0.06) !important;
+   // color: #ffffff !important;
+    box-shadow: none !important;
+  }
+
+  .icon-nav a.is-active,
+  .side-icon-nav a.is-active {
+    background: #0ca383 !important;
+    color: #0c1220 !important;
+    box-shadow: 0 0 16px rgba(12, 163, 131, 0.6) !important;
+  }
+}
+
+/* =====================================================
+   GLOBAL ICON NAV — RESET DEFAULT STATE (FINAL)
+===================================================== */
+
+.subpage-icon-nav a,
+.side-icon-nav a,
+.icon-nav a {
+  background: rgba(255, 255, 255, 0.08) !important;
+  //color: #ffffff !important;
+  box-shadow: none !important;
+}
+/* Active page ONLY */
+.subpage-icon-nav a.is-active,
+.side-icon-nav a.is-active,
+.icon-nav a.is-active {
+  background: #0ca383 !important;
+  color: #fff !important;
+  box-shadow: 0 0 18px rgba(12, 163, 131, 0.45) !important;
+}
+.subpage-icon-nav a:hover,
+.side-icon-nav a:hover,
+.icon-nav a:hover {
+  transform: translateY(-2px);
+}
+/* =====================================================
+   BLOG + PORTFOLIO — WHITE ICONS ON HOVER ONLY
+   (scoped so Contact/About are untouched)
+===================================================== */
+
+body.path-blog .side-icon-nav a:hover i,
+body.path-portfolio .icon-nav a:hover i {
+  color: #ffffff;
+}
+
+/* =====================================================
+   CONTACT — FORCE DEFAULT GREY ICONS
+   (prevents bleed from other pages)
+===================================================== */
+
+body.path-contact .icon-nav a i {
+  color: #bfc6d5;
+}
+
+body.path-contact .icon-nav a:hover i {
+  color: #bfc6d5; /* stay grey on hover */
+}
+/* ===============================
+   ICON NAV — RESPONSIVE
+================================ */
+
+@media (max-width: 992px) {
+
+  .subpage-icon-nav {
+    position: static !important;
+    display: flex;
+    justify-content: center;
+    margin: 2rem auto 3rem;
+  }
+
+  .subpage-icon-nav ul {
+    display: flex;
+    gap: 1rem;
+  }
+
 }
