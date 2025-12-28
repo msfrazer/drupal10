@@ -207,15 +207,23 @@ body.path-contact {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+/* BASE ICON */
 .subpage-icon-nav a i {
-  color: #ffffff;
-  font-size: 1.1rem;
+  color: #bfc6d5;
+  transition: color 0.2s ease;
 }
 
-.subpage-icon-nav a:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 0 22px rgba(12,163,131,0.45);
+/* ACTIVE PAGE (Contact) */
+.subpage-icon-nav a.is-active i {
+  color: #ffffff;
 }
+
+/* HOVER (non-active pages) */
+.subpage-icon-nav a:hover:not(.is-active) i {
+  color: #ffffff;
+}
+
+
 
 /* =====================================================
    RESPONSIVE
@@ -250,7 +258,7 @@ body.path-contact {
     margin-top: 10px;
     //margin: 0;
     padding-top: 2rem;
-    margin-left: 25rem;
+    margin-left: 35rem;
     z-index: 2;
   }
 
@@ -263,7 +271,7 @@ body.path-contact {
     position: absolute;
     inset: 0;
     font-size: clamp(6rem, 6vw, 11rem);
-    margin-left: 5rem;
+    margin-left: 15rem;
     font-weight: 900;
     letter-spacing: 0.12em;
     opacity: 0.05;
@@ -435,7 +443,6 @@ body.path-contact {
 }
 /* =====================================================
    CONTACT FORM — SIZE & SPACING REFINEMENT
-   File: scss/components/_contact.scss
 ===================================================== */
 
 .contact-form-wrapper {
@@ -466,12 +473,12 @@ body.path-contact {
     padding: 0.55rem 0.9rem; // 👈 reduces tall pill look
     font-size: 0.9rem;
 
-    border-radius: 10px; // 👈 less round (NOT pills)
+    border-radius: 10px;
   }
 
   /* Message field specifically */
   textarea {
-    min-height: 140px; // 👈 shorter message box
+    min-height: 140px;
     resize: vertical;
   }
 
@@ -547,4 +554,41 @@ body.path-contact {
   .form-actions button {
     margin: 0; /* override Drupal defaults */
   }
+}
+/* =====================================================
+   BLOG + PORTFOLIO — WHITE ICONS ON HOVER ONLY
+   (scoped so Contact/About are untouched)
+===================================================== */
+
+body.path-blog .side-icon-nav a:hover i,
+body.path-portfolio .icon-nav a:hover i {
+  color: #ffffff;
+}
+
+/* =====================================================
+   CONTACT — FORCE DEFAULT GREY ICONS
+   (prevents bleed from other pages)
+===================================================== */
+
+body.path-contact .icon-nav a i {
+  color: #bfc6d5;
+}
+
+body.path-contact .icon-nav a:hover i {
+  color: #bfc6d5; /* stay grey on hover */
+}
+@media (max-width: 768px) {
+
+  body.path-contact {
+
+    .contact-form-wrapper {
+      padding: 1.5rem;
+    }
+
+    .subpage-icon-nav {
+      margin-bottom: 2rem;
+    }
+
+  }
+
 }
